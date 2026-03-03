@@ -1,6 +1,6 @@
 # Reconnaissance & Énumération
 
-## 1 NMAP
+## 1. NMAP
 
 ```bash
 # Scan basique (1000 ports les plus communs)
@@ -86,7 +86,7 @@ nmap --open enum-sandbox  # Montre que les ports ouverts
 ---
 
 
-## 2 CURL
+## 2. CURL
 
 **Afficher headers + contenu :**
 
@@ -246,7 +246,7 @@ curl -i -L -k https://cors-sandbox
 
 ---
 
-## 3 NETCAT (nc)
+## 3. NETCAT (nc)
 
 **Banner grabbing SSH :**
 

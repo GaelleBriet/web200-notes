@@ -20,7 +20,7 @@
 --technique=BEUSTQ  # Boolean, Error, Union, Stacked, Time, Query
 ```
 
-## 1 SQLMap - Commandes Basiques
+## 1. SQLMap - Commandes Basiques
 
 ### 1.1 Scan GET simple :
 
@@ -54,7 +54,7 @@ sqlmap -u http://sql-sandbox/sqlmap/api \
 
 ### 1.3 SQLMap avec multipart/form-data
 
-#### 1.3.1 1ère méthode avec fichier 
+#### 1.3.1. 1ère méthode avec fichier 
 Sauvegarder la requête dans un fichier  
 dans Burp -> clic droit sur la requête ->Copy to file -> file.txt  
 AJOUTER UN * APRES LA VALEUR A TESTER   
@@ -94,7 +94,7 @@ sqlmap -r piano-auth.txt --batch --risk 3 --level 5 -p username,password,dType
 sqlmap -r piano-auth.txt --batch -p username
 ```
 
-#### 1.3.2 2nde méthode en ligne de commande
+#### 1.3.2. 2nde méthode en ligne de commande
 ```bash
 sqlmap -u "http://piano/auth" \
   --data="username=admin&password=test&dType=test&_token=q2Fn1UJt1sUevJfhaoi7j1kHWmbKRR1uJtGMQKtI" \

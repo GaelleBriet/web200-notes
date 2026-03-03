@@ -1,8 +1,8 @@
-# 5. Shells & Netcat
+# Shells & Netcat
 
-## 5.1 Reverse Shell - Listener
+## 1. Reverse Shell - Listener
 
-**Écouter sur port 9090 :**
+### Écouter sur port 9090 :
 
 ```bash
 nc -vlp 9090
@@ -26,9 +26,9 @@ ncat -vlp 9090 --ssl  # SSL reverse shell
 
 ---
 
-## 5.2 Bind Shell - Connexion
+## 2. Bind Shell - Connexion
 
-**Se connecter à bind shell :**
+*Se connecter à bind shell :**
 
 ```bash
 nc enum-sandbox 9999

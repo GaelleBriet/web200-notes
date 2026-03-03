@@ -1,8 +1,8 @@
 # Fuzzing
 
-## 1 WFUZZ
+## 1. WFUZZ
 
-**Fuzzing paramètre GET :**
+### 1.1 Fuzzing paramètre GET :
 
 ```bash
 wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/SQL.txt \
@@ -20,7 +20,7 @@ wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/SQL.txt \
 
 ---
 
-**Fuzzing paramètre dans URL :**
+### 1.2 Fuzzing paramètre dans URL :
 
 ```bash
 wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/SQL.txt \
@@ -29,7 +29,7 @@ wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/SQL.txt \
 
 ---
 
-**FILTRES (Hide) - Options CRITIQUES :**
+### 1.3 FILTRES (Hide) - Options CRITIQUES :
 
 ```bash
 # Cacher par code HTTP
@@ -58,7 +58,7 @@ wfuzz -c -w wordlist.txt --hc 404,403 --hh 0 -u http://target/FUZZ
 
 ---
 
-**MATCH (Show) - Inverse des filtres :**
+### 1.4 MATCH (Show) - Inverse des filtres :
 
 ```bash
 # Montrer SEULEMENT code 200
@@ -84,7 +84,7 @@ wfuzz -c -w wordlist.txt --sw 50 -u http://target/FUZZ
 
 ---
 
-**Threads (parallélisation) :**
+### 1.5 Threads (parallélisation) :
 
 ```bash
 wfuzz -c -w wordlist.txt -t 50 -u http://target/FUZZ
@@ -96,7 +96,7 @@ wfuzz -c -w wordlist.txt -t 50 -u http://target/FUZZ
 
 ---
 
-**Cookies :**
+### 1.6 Cookies :
 
 ```bash
 wfuzz -c -w wordlist.txt -b "session=abc123" -u http://target/FUZZ
@@ -108,7 +108,7 @@ wfuzz -c -w wordlist.txt -b "session=abc123" -u http://target/FUZZ
 
 ---
 
-**Headers personnalisés :**
+### 1.7 Headers personnalisés :
 
 ```bash
 wfuzz -c -w wordlist.txt \
@@ -123,7 +123,7 @@ wfuzz -c -w wordlist.txt \
 
 ---
 
-**Suivre redirections :**
+### 1.8 Suivre redirections :
 
 ```bash
 wfuzz -c -w wordlist.txt --follow -u http://target/FUZZ
@@ -135,7 +135,7 @@ wfuzz -c -w wordlist.txt --follow -u http://target/FUZZ
 
 ---
 
-**Proxy :**
+### 1.9 Proxy :
 
 ```bash
 wfuzz -c -w wordlist.txt -p 127.0.0.1:8080 -u http://target/FUZZ
@@ -150,7 +150,7 @@ wfuzz -c -w wordlist.txt -p 127.0.0.1:9050:SOCKS5 -u http://target/FUZZ
 
 ---
 
-**Méthode HTTP :**
+### 1.10 Méthode HTTP :
 
 ```bash
 wfuzz -c -w wordlist.txt -X POST -u http://target/FUZZ
@@ -162,7 +162,7 @@ wfuzz -c -w wordlist.txt -X POST -u http://target/FUZZ
 
 ---
 
-**Encoder payloads :**
+### 1.11 Encoder payloads :
 
 ```bash
 wfuzz -c -w wordlist.txt -e base64 -u http://target/FUZZ
@@ -174,7 +174,7 @@ wfuzz -c -w wordlist.txt -e base64 -u http://target/FUZZ
 
 ---
 
-**Plusieurs FUZZ positions :**
+### 1.12 Plusieurs FUZZ positions :
 
 ```bash
 wfuzz -c -w users.txt -w passwords.txt \
@@ -190,7 +190,7 @@ wfuzz -c -w users.txt -w passwords.txt \
 
 ---
 
-**Analyser les résultats :**
+### 1.13 Analyser les résultats :
 
 - Regarder : Code réponse (200, 500, etc.), Taille (Chars), Lignes (Lines), Mots (Words)
 - **200 + 2 Ch** = Probablement réponse vide
@@ -206,9 +206,9 @@ wfuzz -c -w users.txt -w passwords.txt \
 
 ---
 
-## 2 FFUF
+## 2. FFUF
 
-**Fuzzing formulaire POST (username) :**
+### 2.1 Fuzzing formulaire POST (username) :
 
 ```bash
 ffuf -w users.txt \
@@ -230,7 +230,7 @@ ffuf -w users.txt \
 
 ---
 
-**FILTRES (Filter) - Options CRITIQUES :**
+### 2.2 FILTRES (Filter) - Options CRITIQUES :
 
 ```bash
 # Filtrer par code HTTP
@@ -262,7 +262,7 @@ ffuf -w wordlist.txt -fc 404,403 -fs 0,1234 -u http://target/FUZZ
 
 ---
 
-**MATCH (Match) - Inverse des filtres :**
+### 2.3 MATCH (Match) - Inverse des filtres :
 
 ```bash
 # Montrer SEULEMENT code 200
@@ -291,7 +291,7 @@ ffuf -w wordlist.txt -mr "success|admin" -u http://target/FUZZ
 
 ---
 
-**Threads (parallélisation) :**
+### 2.4 Threads (parallélisation) :
 
 ```bash
 ffuf -w wordlist.txt -t 100 -u http://target/FUZZ
@@ -303,7 +303,7 @@ ffuf -w wordlist.txt -t 100 -u http://target/FUZZ
 
 ---
 
-**Rate limiting :**
+### 2.5 Rate limiting :
 
 ```bash
 # Limiter à 10 requêtes par seconde
@@ -323,7 +323,7 @@ ffuf -w wordlist.txt -p 0.5-1.0 -u http://target/FUZZ
 
 ---
 
-**Timeout :**
+### 2.6 Timeout :
 
 ```bash
 ffuf -w wordlist.txt -timeout 30 -u http://target/FUZZ
@@ -335,7 +335,7 @@ ffuf -w wordlist.txt -timeout 30 -u http://target/FUZZ
 
 ---
 
-**Extensions :**
+### 2.7 Extensions :
 
 ```bash
 # Tester avec extensions
@@ -352,7 +352,7 @@ ffuf -w wordlist.txt -e .php,.html -u http://target/FUZZ -sf
 
 ---
 
-**Recursion :**
+### 2.8 Recursion :
 
 ```bash
 # Fuzzing récursif
@@ -369,7 +369,7 @@ ffuf -w wordlist.txt -recursion -recursion-depth 3 -u http://target/FUZZ
 
 ---
 
-**Verbose / Silent :**
+### 2.9 Verbose / Silent :
 
 ```bash
 # Verbose (debug)
@@ -386,7 +386,7 @@ ffuf -w wordlist.txt -s -u http://target/FUZZ
 
 ---
 
-**Colorize :**
+### 2.10 Colorize :
 
 ```bash
 ffuf -w wordlist.txt -c -u http://target/FUZZ
@@ -398,7 +398,7 @@ ffuf -w wordlist.txt -c -u http://target/FUZZ
 
 ---
 
-**Output formats :**
+### 2.10 Output formats :
 
 ```bash
 # JSON
@@ -430,7 +430,7 @@ ffuf -w wordlist.txt -o results -of all -u http://target/FUZZ
 
 ---
 
-**Headers personnalisés :**
+### 2.11 Headers personnalisés :
 
 ```bash
 ffuf -w wordlist.txt \
@@ -445,7 +445,7 @@ ffuf -w wordlist.txt \
 
 ---
 
-**Cookies :**
+### 2.12 Cookies :
 
 ```bash
 ffuf -w wordlist.txt -b "session=abc123; token=xyz" -u http://target/FUZZ
@@ -457,7 +457,7 @@ ffuf -w wordlist.txt -b "session=abc123; token=xyz" -u http://target/FUZZ
 
 ---
 
-**Proxy :**
+### 2.13 Proxy :
 
 ```bash
 ffuf -w wordlist.txt -x http://127.0.0.1:8080 -u http://target/FUZZ
@@ -469,7 +469,7 @@ ffuf -w wordlist.txt -x http://127.0.0.1:8080 -u http://target/FUZZ
 
 ---
 
-**Replay proxy (envoyer matches à proxy) :**
+### 2.14 Replay proxy (envoyer matches à proxy) :
 
 ```bash
 ffuf -w wordlist.txt -replay-proxy http://127.0.0.1:8080 -u http://target/FUZZ
@@ -481,7 +481,7 @@ ffuf -w wordlist.txt -replay-proxy http://127.0.0.1:8080 -u http://target/FUZZ
 
 ---
 
-**Suivre redirections :**
+### 2.15 Suivre redirections :
 
 ```bash
 ffuf -w wordlist.txt -r -u http://target/FUZZ
@@ -493,7 +493,7 @@ ffuf -w wordlist.txt -r -u http://target/FUZZ
 
 ---
 
-**Ignorer auto-calibration :**
+### 2.16 Ignorer auto-calibration :
 
 ```bash
 ffuf -w wordlist.txt -ac -u http://target/FUZZ
@@ -505,7 +505,7 @@ ffuf -w wordlist.txt -ac -u http://target/FUZZ
 
 ---
 
-**Fuzzing avec plusieurs FUZZ positions :**
+### 2.17 Fuzzing avec plusieurs FUZZ positions :
 
 ```bash
 # Méthode 1 : Plusieurs wordlists
@@ -525,7 +525,7 @@ ffuf -w wordlist1.txt:W1 -w wordlist2.txt:W2 \
 
 ---
 
-**Mode cluster bomb / pitchfork :**
+### 2.18 Mode cluster bomb / pitchfork :
 
 ```bash
 # Cluster bomb (teste toutes les combinaisons)
@@ -546,7 +546,7 @@ ffuf -w users.txt:USER -w passwords.txt:PASS -mode pitchfork \
 
 ---
 
-**Stop conditions :**
+### 2.19 Stop conditions :
 
 ```bash
 # Arrêter après N résultats
@@ -563,7 +563,7 @@ ffuf -w wordlist.txt -sa -u http://target/FUZZ
 
 ---
 
-**Content-Type courants :**
+### 2.20 Content-Type courants :
 
 - `application/x-www-form-urlencoded` : Formulaire standard
 - `application/json` : Données JSON
@@ -571,7 +571,7 @@ ffuf -w wordlist.txt -sa -u http://target/FUZZ
 
 ---
 
-**Auto-calibration (ignore faux positifs) :**
+### 2.21 Auto-calibration (ignore faux positifs) :
 
 ```bash
 ffuf -w wordlist.txt -ac -u http://target/FUZZ

@@ -1,6 +1,6 @@
 # Discovery & Content Discovery
 
-## 1 Gobuster
+## 1. Gobuster
 
 ```bash
 # Directory bruteforce
@@ -27,7 +27,7 @@ gobuster dir -u http://TARGET -w WORDLIST -t 50 -k -r
 
 ---
 
-## 2 Hakrawler
+## 2. Hakrawler
 
 ```bash
 # Crawl basique
@@ -43,7 +43,7 @@ echo "http://TARGET" | hakrawler -u -proxy http://127.0.0.1:8080
 
 ---
 
-## 3 Dirb
+## 3. Dirb
 
 ```bash
 # Scan basique
@@ -58,7 +58,7 @@ dirb http://TARGET -N 404,403
 
 ---
 
-## 4 Curl - Inspection rapide
+## 4. Curl - Inspection rapide
 
 ```bash
 # Headers seulement
