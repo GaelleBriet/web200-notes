@@ -39,7 +39,12 @@
   color: #fff176 !important;
 }
 
-/* Tags de vulnérabilité colorés */
+/* Menu */
+.md-sidebar .md-sidebar__scrollwrap .md-sidebar__inner .md-nav .md-nav__list .md-nav__item .md-nav__link span {
+  color: #ce93d8 !important; 
+}
+
+  /* Tags de vulnérabilité colorés */
 .tag-critical { background-color: #c62828 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
 .tag-high     { background-color: #e65100 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
 .tag-medium   { background-color: #f9a825 !important; color: black !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
