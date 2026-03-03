@@ -27,38 +27,3 @@ Toutes les commandes, payloads et méthodologies pour l'exam.
 
 </div>
 
----
-
-## Payload universel de détection
-
-```bash
-# Teste SQLi, XSS, SSTI, EL injection, Command injection en une requête
-'"><img src=x>{{7*7}}${7*7};sleep 5
-```
-
-## Checklist démarrage exam
-
-```bash
-# 1. VPN actif
-sudo openvpn universal.ovpn
-
-# 2. Hosts
-sudo nano /etc/hosts   # ajouter IP cible
-
-# 3. Scan initial
-nmap -sV -O -Pn TARGET
-nmap -A -sC -T4 TARGET
-
-# 4. Enum web
-gobuster dir -u http://TARGET -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-directories.txt
-echo "http://TARGET" | hakrawler -u
-
-# 5. Listener prêt
-nc -nlvp 9090
-```
-
----
-
-!!! tip "Rappel important"
-    **ENUMERATION** = "Je **découvre** ce qui existe"  
-    **EXPLOITATION** = "J'**abuse** de ce que j'ai trouvé"
