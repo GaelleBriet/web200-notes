@@ -22,22 +22,23 @@
   font-size: 0.82em !important;
 }
 
-/* Commentaires bash - vert */
-.language-bash .c,
-.language-bash .c1 {
+/* Commentaires - vert */
+.highlight .c,
+.highlight .c1,
+.highlight .cm {
   color: #a5d6a7 !important;
 }
 
-/* Options/flags (tirets) - jaune */
-.language-bash .o,
-.language-bash .nv {
+/* Options/flags - jaune */
+.highlight .o,
+.highlight .nv {
   color: #fff176 !important;
 }
 
 /* Strings - orange */
-.language-bash .s,
-.language-bash .s1,
-.language-bash .s2 {
+.highlight .s,
+.highlight .s1,
+.highlight .s2 {
   color: #ffcc80 !important;
 }
 
