@@ -1,4 +1,4 @@
-# 🎯 WEB200 Notes — Gaelle · Team Isis
+# 🎯 WEB200 Notes
 
 Cheatsheets de préparation à la certification **OSWA (WEB-200)**.  
 Toutes les commandes, payloads et méthodologies pour l'exam.

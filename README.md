@@ -1,6 +1,6 @@
 # WEB200 Notes
 
-Cheatsheets de préparation OSWA - Team Isis 🎯
+Cheatsheets de préparation OSWA
 
 ## 🚀 Setup local (prévisualisation)
 
