@@ -1,4 +1,4 @@
-# <span style="color:orange;">8. Manipulation de Fichiers</span>
+# 8. Manipulation de Fichiers
 
 ## 8.1 Redirection & Pipes
 

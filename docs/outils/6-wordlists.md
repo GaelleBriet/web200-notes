@@ -1,4 +1,4 @@
-# <span style="color:orange;">6. Wordlists & Génération</span>
+# 6. Wordlists & Génération
 
 ## 📚<span style="color:orange;"> Wordlists Essentielles</span>
 

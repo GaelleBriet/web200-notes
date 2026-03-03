@@ -1,4 +1,4 @@
-# 🎯<span style="color:orange;"> Options les Plus Importantes à Retenir</span>
+# 🎯 Options les Plus Importantes à Retenir
 
 ## NMAP
 

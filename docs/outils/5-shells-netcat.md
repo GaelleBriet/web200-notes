@@ -1,4 +1,4 @@
-# <span style="color:orange;">5. Shells & Netcat</span>
+# 5. Shells & Netcat
 
 ## 5.1 Reverse Shell - Listener
 

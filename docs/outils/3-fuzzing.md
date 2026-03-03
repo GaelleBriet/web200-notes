@@ -1,6 +1,6 @@
-# <span style="color:orange;">3. Fuzzing</span>
+# Fuzzing
 
-## 3.1 WFUZZ
+## 1 WFUZZ
 
 **Fuzzing paramètre GET :**
 
@@ -206,7 +206,7 @@ wfuzz -c -w users.txt -w passwords.txt \
 
 ---
 
-## 3.2 FFUF
+## 2 FFUF
 
 **Fuzzing formulaire POST (username) :**
 
