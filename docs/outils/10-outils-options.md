@@ -1,4 +1,4 @@
-# 🎯 Options les Plus Importantes à Retenir
+# Options les plus importantes à retenir
 
 ## NMAP
 

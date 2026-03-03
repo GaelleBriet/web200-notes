@@ -1,8 +1,8 @@
-# 8. Manipulation de Fichiers
+# Manipulation de Fichiers
 
-## 8.1 Redirection & Pipes
+## 1. Redirection & Pipes
 
-**Créer fichier :**
+### 1.1 Créer fichier
 
 ```bash
 echo "alert(1)" > xss.js
@@ -15,7 +15,7 @@ echo "alert(1)" > xss.js
 
 ---
 
-**Ajouter à fichier existant :**
+### 1.2 Ajouter à fichier existant
 
 ```bash
 echo "console.log('test')" >> xss.js
@@ -27,7 +27,7 @@ echo "console.log('test')" >> xss.js
 
 ---
 
-**Pipe (envoyer output à autre commande) :**
+### 1.3 Pipe (envoyer output à autre commande)
 
 ```bash
 ls /usr/bin | grep python
@@ -40,7 +40,7 @@ cat file.txt | grep "flag"
 
 ---
 
-**Rediriger stderr :**
+### 1.4 Rediriger stderr
 
 ```bash
 # Ignorer erreurs
@@ -56,9 +56,9 @@ command > output.txt 2>&1
 
 ---
 
-## 8.2 Grep
+## 2. Grep
 
-**Chercher dans fichier :**
+### 2.1 Chercher dans fichier
 
 ```bash
 grep "flag" results.txt
@@ -66,7 +66,7 @@ grep "flag" results.txt
 
 ---
 
-**Exclure motif :**
+### 2.2 Exclure motif
 
 ```bash
 grep -v "/" output.txt
@@ -78,7 +78,7 @@ grep -v "/" output.txt
 
 ---
 
-**Case insensitive :**
+### 2.3 Case insensitive
 
 ```bash
 grep -i "admin" file.txt
@@ -90,7 +90,7 @@ grep -i "admin" file.txt
 
 ---
 
-**Récursif (dans dossiers) :**
+### 2.4 Récursif (dans dossiers)
 
 ```bash
 grep -r "password" /var/www/
@@ -102,7 +102,7 @@ grep -r "password" /var/www/
 
 ---
 
-**Afficher numéros de ligne :**
+### 2.5 Afficher numéros de ligne
 
 ```bash
 grep -n "flag" file.txt
@@ -114,7 +114,7 @@ grep -n "flag" file.txt
 
 ---
 
-**Compter occurrences :**
+### 2.6 Compter occurrences
 
 ```bash
 grep -c "error" log.txt
@@ -126,7 +126,7 @@ grep -c "error" log.txt
 
 ---
 
-**Afficher contexte :**
+### 2.7 Afficher contexte
 
 ```bash
 # 3 lignes avant et après
@@ -147,7 +147,7 @@ grep -A 2 "flag" file.txt
 
 ---
 
-**Regex :**
+### 2.8 Regex
 
 ```bash
 grep -E "admin|root" file.txt
@@ -159,7 +159,7 @@ grep -E "admin|root" file.txt
 
 ---
 
-**Chercher dans logs :**
+### 2.9 Chercher dans logs
 
 ```bash
 grep "GET /k?key=" server.log | sed 's/.*key=\(.\).*/\1/' | tr -d '\n' && echo
@@ -174,9 +174,9 @@ grep "GET /k?key=" server.log | sed 's/.*key=\(.\).*/\1/' | tr -d '\n' && echo
 
 ---
 
-## 8.3 Édition Fichiers
+## 3. Édition Fichiers
 
-**Nano (éditeur simple) :**
+### 3.1 Nano (éditeur simple)
 
 ```bash
 nano xss.js
@@ -193,7 +193,7 @@ nano xss.js
 
 ---
 
-**Vi/Vim :**
+### 3.2 Vi/Vim
 
 ```bash
 vi file.txt
@@ -214,7 +214,7 @@ vim file.txt
 
 ---
 
-**Cat (afficher contenu) :**
+### 3.4 Cat (afficher contenu)
 
 ```bash
 cat /etc/passwd
@@ -223,7 +223,7 @@ cat flag.txt
 
 ---
 
-**Head / Tail :**
+### 3.5 Head / Tail
 
 ```bash
 # 10 premières lignes
@@ -240,7 +240,7 @@ tail -f /var/log/apache2/access.log
 
 ---
 
-**Less / More (paginer) :**
+### 3.6 Less / More (paginer)
 
 ```bash
 less file.txt  # Navigation avec flèches, q pour quitter
@@ -249,7 +249,7 @@ more file.txt
 
 ---
 
-**Wc (word count) :**
+### 3.7 Wc (word count)
 
 ```bash
 wc file.txt        # Lignes, mots, chars
@@ -260,7 +260,7 @@ wc -c file.txt     # Nombre de chars
 
 ---
 
-**Sort / Uniq :**
+### 3.8 Sort / Uniq
 
 ```bash
 # Trier
@@ -278,7 +278,7 @@ sort file.txt | uniq -c | sort -rn
 
 ---
 
-**Cut (extraire colonnes) :**
+### 3.9 Cut (extraire colonnes)
 
 ```bash
 # Extraire champ 1 (délimiteur :)
@@ -290,7 +290,7 @@ cut -d':' -f1-3 /etc/passwd
 
 ---
 
-**Awk (manipulation texte avancée) :**
+### 3.10 Awk (manipulation texte avancée)
 
 ```bash
 # Afficher colonne 1
@@ -305,7 +305,7 @@ awk '$3 > 100 {print $1}' file.txt
 
 ---
 
-**Sed (stream editor) :**
+### 3.11 Sed (stream editor)
 
 ```bash
 # Remplacer
@@ -320,9 +320,9 @@ sed '/^$/d' file.txt
 
 ---
 
-## 8.4 Transfert de Fichiers
+## 4. Transfert de Fichiers
 
-**Wget :**
+### 4.1 Wget
 
 ```bash
 wget http://192.168.49.56/file.txt
@@ -331,7 +331,7 @@ wget -O custom_name.txt http://192.168.49.56/file.txt
 
 ---
 
-**Curl :**
+### 4.2 Curl
 
 ```bash
 curl http://192.168.49.56/file.txt -o file.txt
@@ -340,7 +340,7 @@ curl -O http://192.168.49.56/file.txt
 
 ---
 
-**Base64 (si pas de wget/curl) :**
+### 4.3 Base64 (si pas de wget/curl)
 
 ```bash
 # Sur Kali
@@ -352,7 +352,7 @@ echo "base64_string" | base64 -d > file.txt
 
 ---
 
-**SCP (si SSH access) :**
+### 4.4 SCP (si SSH access)
 
 ```bash
 # Upload vers cible

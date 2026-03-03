@@ -1,4 +1,4 @@
-# 6. Wordlists & Génération
+# Wordlists & Génération
 
 ## Wordlists Essentielles
 

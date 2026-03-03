@@ -1,6 +1,6 @@
-# 7. Serveur HTTP Python
+# Serveur HTTP Python
 
-## 7.1 Héberger Fichiers
+## 1. Héberger des fichiers
 
 **Lancer serveur HTTP sur port 80 :**
 
@@ -21,7 +21,7 @@ python3 -m http.server 80
 192.168.56.101 - - [12/Jan/2026 12:31:09] "GET /exfil?data=cookie HTTP/1.1" 404 -
 ```
 
-### 7.1.1 serveur python plus complet
+### 1.1 serveur python plus complet
 
 ```python
 #!/usr/bin/env python3
@@ -95,7 +95,7 @@ sudo python3 python_server.py
 
 ---
 
-### 7.1.2 Port personnalisé :
+### 1.2 Port personnalisé :
 
 ```bash
 python3 -m http.server 8000
@@ -104,7 +104,7 @@ python3 -m http.server 8080
 
 ---
 
-### 7.1.3 Bind sur IP spécifique :
+### 1.3 Bind sur IP spécifique :
 
 ```bash
 python3 -m http.server 8000 --bind 192.168.1.100
@@ -113,7 +113,7 @@ python3 -m http.server 8000 -b 0.0.0.0  # Toutes interfaces
 
 ---
 
-### 7.1.4Directory spécifique :
+### 1.4Directory spécifique :
 
 ```bash
 python3 -m http.server 8000 --directory /path/to/dir
