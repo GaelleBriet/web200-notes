@@ -1,0 +1,115 @@
+site_name: "Gaelle · WEB200 Notes"
+site_description: "Cheatsheets & notes de préparation OSWA"
+site_url: "https://GaelleBriet.github.io/web200-notes/"
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Mode clair
+    - scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Mode sombre
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: fr
+  - tags
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - 🏠 Accueil: index.md
+
+  - 🔧 Outils:
+    - outils/index.md
+    - Nmap / Curl / Netcat: outils/1-enumeration-nmap-curl-nc.md
+    - Discovery (Hakrawler / Dirb / Gobuster): outils/2-discovery.md
+    - Fuzzing (wfuzz / ffuf): outils/3-fuzzing.md
+    - SQLMap: outils/4-sqlmap.md
+    - Shells & Netcat: outils/5-shells-netcat.md
+    - Wordlists: outils/6-wordlists.md
+    - Serveur HTTP: outils/7-serveur-http.md
+    - Manipulation fichiers: outils/8-manipulation-fichiers.md
+    - Options clés (résumé): outils/10-outils-options.md
+
+  - 💉 Vulnérabilités:
+    - vulns/index.md
+    - SQL Injection:
+      - Énumération SQL: vulns/sql/11-sql-enumeration.md
+      - Payloads SQL: vulns/sql/12-sql-payloads.md
+    - XSS: vulns/14-xss.md
+    - Command Injection: vulns/15-command-injection.md
+    - Directory Traversal / LFI: vulns/16-lfi-traversal.md
+    - File Upload Bypass: vulns/17-file-upload.md
+    - SSTI: vulns/13-ssti.md
+    - XXE: vulns/18-xxe.md
+    - SSRF: vulns/19-ssrf.md
+    - CSRF: vulns/20-csrf.md
+    - IDOR: vulns/21-idor.md
+    - JWT: vulns/22-jwt.md
+
+  - 🐚 Post-Exploitation:
+    - post-exploit/index.md
+    - Linux Post-RCE: post-exploit/23-linux-post-rce.md
+    - Reverse Shells: post-exploit/24-reverse-shells.md
+
+  - 🎯 Méthodologie:
+    - methodology/index.md
+    - Workflow type: methodology/9-workflow.md
+    - Payload universel: methodology/999-payloads.md
+    - Checklist exam: methodology/checklist-exam.md
+
+  - 🔀 Setup:
+    - setup/index.md
+    - Pré-requis / VPN / VM: setup/0-pre.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/GaelleBriet
+
+extra_css:
+  - stylesheets/extra.css

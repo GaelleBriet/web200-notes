@@ -1,0 +1,40 @@
+/* ============================================
+   WEB200 Notes - Custom Styles
+   ============================================ */
+
+/* Police code plus lisible */
+.md-typeset code {
+  font-size: 0.85em;
+}
+
+/* Blocs de code plus contrastés */
+.md-typeset pre > code {
+  font-size: 0.82em;
+}
+
+/* Tags de vulnérabilité colorés */
+.tag-critical { background-color: #c62828; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
+.tag-high     { background-color: #e65100; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
+.tag-medium   { background-color: #f9a825; color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
+
+/* Cards sur la homepage */
+.md-typeset .grid.cards > ul > li {
+  border-left: 3px solid var(--md-primary-fg-color);
+}
+
+/* Highlight des commandes importantes */
+.md-typeset .admonition.danger {
+  border-left-color: #ff1744;
+}
+
+/* Tableaux plus lisibles */
+.md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color);
+  color: white;
+}
+
+/* Scrollbar custom pour les blocs de code */
+.md-typeset pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--md-primary-fg-color) transparent;
+}
