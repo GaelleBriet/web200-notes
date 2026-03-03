@@ -1,4 +1,4 @@
-# ✅ Checklist Exam
+# Checklist Exam
 
 ## Avant de commencer
 
