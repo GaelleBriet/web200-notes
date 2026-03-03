@@ -13,7 +13,7 @@ Toutes les commandes, payloads et méthodologies pour l'exam.
   Nmap, curl, gobuster, wfuzz, ffuf, sqlmap...  
   [:octicons-arrow-right-24: Voir les outils](outils/index.md)
 
-- :material-injection: **Vulnérabilités**  
+- :material-code-braces: **Vulnérabilités**  
   SQLi, XSS, SSTI, XXE, SSRF, LFI, File Upload...  
   [:octicons-arrow-right-24: Voir les vulns](vulns/index.md)
 
