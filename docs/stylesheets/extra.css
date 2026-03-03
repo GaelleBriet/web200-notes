@@ -22,25 +22,6 @@
   font-size: 0.82em;
 }
 
-/* Commentaires bash - vert */
-.language-bash .c,
-.language-bash .c1 {
-  color: #a5d6a7 !important;
-}
-
-/* Options/flags (tirets) - jaune */
-.language-bash .o,
-.language-bash .nv {
-  color: #fff176 !important;
-}
-
-/* Strings - orange */
-.language-bash .s,
-.language-bash .s1,
-.language-bash .s2 {
-  color: #ffcc80 !important;
-}
-
 /* Tags de vulnérabilité colorés */
 .tag-critical { background-color: #c62828; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
 .tag-high     { background-color: #e65100; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
