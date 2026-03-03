@@ -14,37 +14,56 @@
 
 /* Police code plus lisible */
 .md-typeset code {
-  font-size: 0.85em;
+  font-size: 0.85em !important;
 }
 
 /* Blocs de code plus contrastés */
 .md-typeset pre > code {
-  font-size: 0.82em;
+  font-size: 0.82em !important;
+}
+
+/* Commentaires bash - vert */
+.language-bash .c,
+.language-bash .c1 {
+  color: #a5d6a7 !important;
+}
+
+/* Options/flags (tirets) - jaune */
+.language-bash .o,
+.language-bash .nv {
+  color: #fff176 !important;
+}
+
+/* Strings - orange */
+.language-bash .s,
+.language-bash .s1,
+.language-bash .s2 {
+  color: #ffcc80 !important;
 }
 
 /* Tags de vulnérabilité colorés */
-.tag-critical { background-color: #c62828; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
-.tag-high     { background-color: #e65100; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
-.tag-medium   { background-color: #f9a825; color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; }
+.tag-critical { background-color: #c62828 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
+.tag-high     { background-color: #e65100 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
+.tag-medium   { background-color: #f9a825 !important; color: black !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
 
 /* Cards sur la homepage */
 .md-typeset .grid.cards > ul > li {
-  border-left: 3px solid var(--md-primary-fg-color);
+  border-left: 3px solid var(--md-primary-fg-color) !important;
 }
 
 /* Highlight des commandes importantes */
 .md-typeset .admonition.danger {
-  border-left-color: #ff1744;
+  border-left-color: #ff1744 !important;
 }
 
 /* Tableaux plus lisibles */
 .md-typeset table:not([class]) th {
-  background-color: var(--md-primary-fg-color);
+  background-color: var(--md-primary-fg-color) !important;
   color: white;
 }
 
 /* Scrollbar custom pour les blocs de code */
 .md-typeset pre {
   scrollbar-width: thin;
-  scrollbar-color: var(--md-primary-fg-color) transparent;
+  scrollbar-color: var(--md-primary-fg-color) transparent !important;
 }
