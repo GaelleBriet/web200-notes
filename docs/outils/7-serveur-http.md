@@ -95,7 +95,7 @@ sudo python3 python_server.py
 
 ---
 
-### 1.2 Port personnalisé :
+### 1.2 Port personnalisé
 
 ```bash
 python3 -m http.server 8000
@@ -104,7 +104,7 @@ python3 -m http.server 8080
 
 ---
 
-### 1.3 Bind sur IP spécifique :
+### 1.3 Bind sur IP spécifique
 
 ```bash
 python3 -m http.server 8000 --bind 192.168.1.100
@@ -113,7 +113,7 @@ python3 -m http.server 8000 -b 0.0.0.0  # Toutes interfaces
 
 ---
 
-### 1.4Directory spécifique :
+### 1.4Directory spécifique
 
 ```bash
 python3 -m http.server 8000 --directory /path/to/dir

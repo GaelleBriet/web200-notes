@@ -47,7 +47,7 @@
 /usr/share/wordlists/seclists/Discovery/Web-Content/api/
 ```
 
-## 6.1 Lister Wordlists Kali
+## 1. Lister Wordlists Kali
 
 **Wordlists principales :**
 
@@ -72,7 +72,7 @@ git clone https://github.com/danielmiessler/SecLists.git
 
 ---
 
-## 6.2 CeWL - Générer Wordlist Custom
+## 2. CeWL - Générer Wordlist Custom
 
 **Génération basique :**
 
@@ -206,7 +206,7 @@ cewl -w output.txt --lowercase -m 5 http://enum-sandbox/
 
 ---
 
-## 6.3 Créer Wordlist de Binaires
+## 3. Créer Wordlist de Binaires
 
 **Liste binaires système :**
 
