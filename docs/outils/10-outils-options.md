@@ -1,6 +1,6 @@
-## 🎯<span style="color:orange;"> Options les Plus Importantes à Retenir</span>
+# 🎯<span style="color:orange;"> Options les Plus Importantes à Retenir</span>
 
-### NMAP
+## NMAP
 
 - `-sV` : Version services
 - `-p` : Port spécifique
@@ -12,7 +12,7 @@
 - `-T4` : Fast timing
 - `-oN` / `-oX` / `-oG` / `-oA` : Output formats
 
-### CURL
+## CURL
 
 - `-i` : Headers + body
 - `-I` : Headers only
@@ -29,7 +29,7 @@
 - `-s` : Silent
 - `-v` : Verbose
 
-### NETCAT
+## NETCAT
 
 - `-v` : Verbose
 - `-l` : Listen mode
@@ -39,7 +39,7 @@
 - `-z` : Port scan
 - `-u` : UDP mode
 
-### HAKRAWLER
+## HAKRAWLER
 
 - `-u` : Unique URLs
 - `-proxy` : Route via proxy
@@ -51,7 +51,7 @@
 - `-h` : Custom headers
 - `-cookie` : Cookie
 
-### DIRB
+## DIRB
 
 - `-X .ext` : Extensions
 - `-o FILE` : Output file
@@ -65,7 +65,7 @@
 - `-p PROXY` : Proxy
 - `-v` : Verbose
 
-### WFUZZ
+## WFUZZ
 
 - `-c` : Colored output
 - `-w` : Wordlist
@@ -84,7 +84,7 @@
 - `--follow` : Follow redirects
 - `-p PROXY` : Proxy
 
-### FFUF
+## FFUF
 
 - `-w` : Wordlist
 - `-u` : URL
@@ -115,7 +115,7 @@
 - `-r` : Follow redirects
 - `-ac` : Auto-calibrate
 
-### SQLMAP
+## SQLMAP
 
 - `-u` : URL
 - `--data` : POST data
@@ -148,7 +148,7 @@
 - `--file-write / --file-dest` : Write file
 - `-r FILE` : Load request from file
 
-### CEWL
+## CEWL
 
 - `--write` / `-w` : Output file
 - `--lowercase` : Lowercase

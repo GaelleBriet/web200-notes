@@ -1,6 +1,6 @@
-## <span style="color:orange;">8. Manipulation de Fichiers</span>
+# <span style="color:orange;">8. Manipulation de Fichiers</span>
 
-### 8.1 Redirection & Pipes
+## 8.1 Redirection & Pipes
 
 **Créer fichier :**
 
@@ -56,7 +56,7 @@ command > output.txt 2>&1
 
 ---
 
-### 8.2 Grep
+## 8.2 Grep
 
 **Chercher dans fichier :**
 
@@ -174,7 +174,7 @@ grep "GET /k?key=" server.log | sed 's/.*key=\(.\).*/\1/' | tr -d '\n' && echo
 
 ---
 
-### 8.3 Édition Fichiers
+## 8.3 Édition Fichiers
 
 **Nano (éditeur simple) :**
 
@@ -320,7 +320,7 @@ sed '/^$/d' file.txt
 
 ---
 
-### 8.4 Transfert de Fichiers
+## 8.4 Transfert de Fichiers
 
 **Wget :**
 

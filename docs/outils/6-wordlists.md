@@ -1,4 +1,4 @@
-## <span style="color:orange;">6. Wordlists & Génération</span>
+# <span style="color:orange;">6. Wordlists & Génération</span>
 
 ## 📚<span style="color:orange;"> Wordlists Essentielles</span>
 
@@ -47,7 +47,7 @@
 /usr/share/wordlists/seclists/Discovery/Web-Content/api/
 ```
 
-### ### 6.1 Lister Wordlists Kali
+### 6.1 Lister Wordlists Kali
 
 **Wordlists principales :**
 
