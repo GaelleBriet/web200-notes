@@ -27,3 +27,13 @@ Toutes les commandes, payloads et méthodologies pour l'exam.
 
 </div>
 
+
+---
+
+## 🔗 Ressources Utiles
+
+- **PayloadsAllTheThings** : https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection
+- **HackTricks SSTI** : https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
+- **Mako Documentation** : https://docs.makotemplates.org/
+- **EJS Documentation** : https://ejs.co/
+- **PortSwigger SSTI** : https://portswigger.net/web-security/server-side-template-injection
