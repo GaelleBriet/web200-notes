@@ -1,8 +1,8 @@
 # SQL Enumeration Cheatsheet
 
-## MySQL (Reference)
+## 1. MySQL (Reference)
 
-**List all Databases:**
+## 1.1 List all Databases
 
 ```sql
 SELECT schema_name FROM information_schema.schemata;
