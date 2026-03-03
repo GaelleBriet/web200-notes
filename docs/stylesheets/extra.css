@@ -39,6 +39,12 @@
   color: #fff176 !important;
 }
 
+/* Titres H2 dans la table des matières */
+.md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link {
+  color: #80deea !important;
+  font-weight: bold;
+}
+
 
   /* Tags de vulnérabilité colorés */
 .tag-critical { background-color: #c62828 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
