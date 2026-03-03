@@ -4,12 +4,12 @@
 
 /* H1 - couleur principale */
 .md-typeset h1 {
-  color: #ce93d8;  /* lilas clair - harmonieux avec le violet */
+  color: #ce93d8 !important;  /* lilas clair - harmonieux avec le violet */
 }
 
 /* H2 - couleur secondaire */
 .md-typeset h2 {
-  color: #80deea;  /* cyan clair - déjà l'accent du thème */
+  color: #80deea !important;  /* cyan clair - déjà l'accent du thème */
 }
 
 /* Police code plus lisible */
