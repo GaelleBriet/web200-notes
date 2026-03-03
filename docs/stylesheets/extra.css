@@ -23,23 +23,20 @@
 }
 
 /* Commentaires - vert */
-.highlight .c,
-.highlight .c1,
-.highlight .cm {
+.md-code__content .c1 {
   color: #a5d6a7 !important;
 }
 
-/* Options/flags - jaune */
-.highlight .o,
-.highlight .nv {
-  color: #fff176 !important;
+/* Nombres - orange */
+.md-code__content .m {
+  color: #ffcc80 !important;
 }
 
-/* Strings - orange */
-.highlight .s,
-.highlight .s1,
-.highlight .s2 {
-  color: #ffcc80 !important;
+/* Strings - jaune */
+.md-code__content .s,
+.md-code__content .s1,
+.md-code__content .s2 {
+  color: #fff176 !important;
 }
 
 /* Tags de vulnérabilité colorés */
