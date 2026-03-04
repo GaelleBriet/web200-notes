@@ -37,10 +37,11 @@ Injecter un **canary** (mot unique traçable) dans chaque paramètre, puis inspe
 canary123
 ```
 
-Observer :  
-- Dans un attribut HTML → `<input value="canary123">` → tenter de fermer l'attribut  
-- Dans un tag `<script>` → `var x = "canary123"` → injection JS directe  
-- Encodé en HTML `&lt;` → filtre présent, tenter un autre vecteur  
+Observer :
+
+- Dans un attribut HTML → `<input value="canary123">` → tenter de fermer l'attribut
+- Dans un tag `<script>` → `var x = "canary123"` → injection JS directe
+- Encodé en HTML `&lt;` → filtre présent, tenter un autre vecteur
 
 ### 2.4 Fuzzing avec wfuzz
 

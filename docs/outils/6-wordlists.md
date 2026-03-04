@@ -32,6 +32,7 @@
 # XSS
 /usr/share/wordlists/seclists/Fuzzing/XSS/
 /usr/share/wordlists/wfuzz/Injections/XSS.txt
+/usr/share/seclists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt
 
 # LFI/RFI
 /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt
