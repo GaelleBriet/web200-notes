@@ -25,8 +25,6 @@ sudo systemctl daemon-reload
 
 ---
 
-![[onfig-vm.png]]
-
 **VM kali**
 ```bash
 sudo apt update
