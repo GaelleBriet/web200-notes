@@ -107,6 +107,7 @@ nav:
     - Workflow type: methodology/9-workflow.md
     - Payload universel: methodology/999-payloads.md
     - Checklist exam: methodology/checklist-exam.md
+    - Payloads labs (retours d'expérience): methodology/payloads-labs.md
 
   - 🔀 Setup:
     - setup/index.md
