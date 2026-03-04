@@ -14,7 +14,8 @@ system("ping -c 5 " . $_GET['ip']);
 os.system("ping " + request.args.get('ip'))
 ```
 
-Chercher dans les paramètres qui ressemblent à des arguments systèmes : `ip`, `host`, `cmd`, `exec`, `path`, `file`, `dir`...
+Chercher dans les paramètres qui ressemblent à des arguments systèmes :  
+`ip`, `host`, `cmd`, `exec`, `path`, `file`, `dir`...
 
 ### 1.2 Payload de détection basique
 
@@ -32,16 +33,16 @@ Chercher dans les paramètres qui ressemblent à des arguments systèmes : `ip`,
 
 ## 2. Séparateurs de commandes
 
-| Séparateur | Comportement | Exemple |
-|-----------|-------------|---------|
-| `;` | Exécute les deux quoi qu'il arrive | `cmd1;cmd2` |
-| `\|` | Pipe stdout vers cmd2 | `cmd1\|cmd2` |
-| `&&` | cmd2 si cmd1 réussit | `cmd1&&cmd2` |
-| `\|\|` | cmd2 si cmd1 échoue | `cmd1\|\|cmd2` |
-| `` `cmd` `` | Substitution de commande | `` echo `id` `` |
-| `$(cmd)` | Substitution de commande | `echo $(id)` |
-| `%0A` | Newline URL-encodé | `cmd1%0Acmd2` |
-| `%0D%0A` | CRLF URL-encodé | `cmd1%0D%0Acmd2` |
+| Séparateur  | Comportement                       | Exemple          |
+|-------------|------------------------------------|------------------|
+| `;`         | Exécute les deux quoi qu'il arrive | `cmd1;cmd2`      |
+| `\|`        | Pipe stdout vers cmd2              | `cmd1\|cmd2`     |
+| `&&`        | cmd2 si cmd1 réussit               | `cmd1&&cmd2`     |
+| `\|\|`      | cmd2 si cmd1 échoue                | `cmd1\|\|cmd2`   |
+| `` `cmd` `` | Substitution de commande           | `` echo `id` ``  |
+| `$(cmd)`    | Substitution de commande           | `echo $(id)`     |
+| `%0A`       | Newline URL-encodé                 | `cmd1%0Acmd2`    |
+| `%0D%0A`    | CRLF URL-encodé                    | `cmd1%0D%0Acmd2` |
 
 ---
 
@@ -245,19 +246,19 @@ http://TARGET/shell.php?cmd=id
 
 ## 8. URL Encoding — Référence rapide
 
-| Caractère | Encodé |
-|-----------|--------|
-| espace | `%20` ou `+` |
-| `&` | `%26` |
-| `>` | `%3E` |
-| `<` | `%3C` |
-| `"` | `%22` |
-| `'` | `%27` |
-| `;` | `%3B` |
-| `\|` | `%7C` |
-| `/` | `%2F` |
-| `\` | `%5C` |
-| newline | `%0A` |
+| Caractère | Encodé       |
+|-----------|--------------|
+| espace    | `%20` ou `+` |
+| `&`       | `%26`        |
+| `>`       | `%3E`        |
+| `<`       | `%3C`        |
+| `"`       | `%22`        |
+| `'`       | `%27`        |
+| `;`       | `%3B`        |
+| `\|`      | `%7C`        |
+| `/`       | `%2F`        |
+| `\`       | `%5C`        |
+| newline   | `%0A`        |
 
 ---
 
@@ -275,7 +276,7 @@ http://TARGET/shell.php?cmd=id
 ```
 
 !!! tip "Astuce exam"
-Si `;` est bloqué → tester `%0A` (newline)  
-Si `id` est bloqué → tenter `i$()d`  
-Si output invisible → `sleep 5` pour confirmer, puis exfil via fichier web
+    Si `;` est bloqué → tester `%0A` (newline)  
+    Si `id` est bloqué → tenter `i$()d`  
+    Si output invisible → `sleep 5` pour confirmer, puis exfil via fichier web
 
