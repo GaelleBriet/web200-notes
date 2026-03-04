@@ -13,4 +13,6 @@
 | python3 http.server         | Serveur HTTP pour exfiltration        | [→](7-serveur-http.md)             |
 | grep / sed / awk            | Manipulation & extraction fichiers    | [→](8-manipulation-fichiers.md)    |
 | gopher                      |                                       | [→](25-gopher.md)                  |
+| hashcat                     |                                       | [→](26-hashcat.md)                 |
+| john                        |                                       | [→](27-john.md)                    |
 | —                           | Options clés résumées par outil       | [→](10-outils-options.md)          |
