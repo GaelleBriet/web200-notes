@@ -23,8 +23,9 @@
 }
 
 /* Commentaires  */
-.md-code__content .c1 {
-  color: #464946 !important;
+.md-code__content .c1,
+.md-code__content .cm {
+  color: #555955 !important;
 }
 
 /* Nombres - orange */
