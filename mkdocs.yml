@@ -76,6 +76,7 @@ nav:
     - Wordlists: outils/6-wordlists.md
     - Serveur HTTP: outils/7-serveur-http.md
     - Manipulation fichiers: outils/8-manipulation-fichiers.md
+    - Gopher: outils/25-gopher.md
     - Options clés (résumé): outils/10-outils-options.md
 
   - 💉 Vulnérabilités:
