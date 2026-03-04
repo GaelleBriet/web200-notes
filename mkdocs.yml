@@ -77,6 +77,8 @@ nav:
     - Serveur HTTP: outils/7-serveur-http.md
     - Manipulation fichiers: outils/8-manipulation-fichiers.md
     - Gopher: outils/25-gopher.md
+    - Hashcat: outils/26-hashcat.md
+    - John the Ripper: outils/27-john.md
     - Options clés (résumé): outils/10-outils-options.md
 
   - 💉 Vulnérabilités:
