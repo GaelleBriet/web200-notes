@@ -75,6 +75,11 @@ Toutes les commandes, payloads et méthodologies pour l'exam.
 - **Fuff phrack CheatSheet** : https://www.phrack.me/tools/2022/07/06/Ffuf-cheatsheet.html
 - **Wfuzz otterhacker CheatSheet** : https://otterhacker.github.io/Pentest/Tools/Wfuzz.html
 
+**JWT**
+
+- **JWT io** : https://jwt.io/
+- **jwt_tool** : https://github.com/ticarpi/jwt_tool
+
 
 **Documentations diverses**
 

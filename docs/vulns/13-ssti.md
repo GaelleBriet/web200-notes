@@ -4,16 +4,16 @@
 
 ### 1.1 Par Langage
 
-| Engine | Language | Side   | RCE Difficulty |
-| --- | ------- | ------ | ------ |
-| Twig | PHP     | Server | Medium |
-| Freemarker | Java    | Server | Easy   |
-| Pug/Jade | JavaScript | Server | Medium |
-| Handlebars | JavaScript | Both   | Hard   |
-| EJS | Node.js | Server | Medium |
-| Jinja | Python  | Server | Hard   |
-| Mako | Python  | Server | Easy   |
-| Mustache | Multiple | Varies | Very Hard |
+| Engine     | Language   | Side   | RCE Difficulty |
+|------------|------------|--------|----------------|
+| Twig       | PHP        | Server | Medium         |
+| Freemarker | Java       | Server | Easy           |
+| Pug/Jade   | JavaScript | Server | Medium         |
+| Handlebars | JavaScript | Both   | Hard           |
+| EJS        | Node.js    | Server | Medium         |
+| Jinja      | Python     | Server | Hard           |
+| Mako       | Python     | Server | Easy           |
+| Mustache   | Multiple   | Varies | Very Hard      |
 
 ### 1.2 Syntaxe de Base
 
