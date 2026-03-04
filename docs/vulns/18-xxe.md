@@ -179,8 +179,8 @@ sudo tail -f /var/log/apache2/access.log
 ```
 
 !!! warning "Caractères illégaux dans l'URL"
-Les sauts de ligne dans `/etc/passwd` cassent l'URL → erreur "Illegal character in URL".  
-Solution : encoder le contenu en base64 dans le DTD externe (si le parseur le supporte).
+    Les sauts de ligne dans `/etc/passwd` cassent l'URL → erreur "Illegal character in URL".  
+    Solution : encoder le contenu en base64 dans le DTD externe (si le parseur le supporte).
 
 ---
 
