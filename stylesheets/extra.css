@@ -1,0 +1,75 @@
+/* ============================================
+   WEB200 Notes - Custom Styles
+   ============================================ */
+
+/* H1 - couleur principale */
+.md-typeset h1 {
+  color: #ce93d8 !important;  /* lilas clair - harmonieux avec le violet */
+}
+
+/* H2 - couleur secondaire */
+.md-typeset h2 {
+  color: #80deea !important;  /* cyan clair - déjà l'accent du thème */
+}
+
+/* Police code plus lisible */
+.md-typeset code {
+  font-size: 0.85em !important;
+}
+
+/* Blocs de code plus contrastés */
+.md-typeset pre > code {
+  font-size: 0.82em !important;
+}
+
+/* Commentaires  */
+.md-code__content .c1,
+.md-code__content .cm {
+  color: #747674 !important;
+}
+
+/* Nombres - orange */
+.md-code__content .m {
+  color: #ffcc80 !important;
+}
+
+/* Strings - jaune */
+.md-code__content .s,
+.md-code__content .s1,
+.md-code__content .s2 {
+  color: #fff176 !important;
+}
+
+/* Titres H2 dans la table des matières */
+.md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link {
+  color: #80deea !important;
+  font-weight: bold;
+}
+
+
+  /* Tags de vulnérabilité colorés */
+.tag-critical { background-color: #c62828 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
+.tag-high     { background-color: #e65100 !important; color: white !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
+.tag-medium   { background-color: #f9a825 !important; color: black !important; padding: 2px 8px !important; border-radius: 4px !important; font-size: 0.75em !important; }
+
+/* Cards sur la homepage */
+.md-typeset .grid.cards > ul > li {
+  border-left: 3px solid var(--md-primary-fg-color) !important;
+}
+
+/* Highlight des commandes importantes */
+.md-typeset .admonition.danger {
+  border-left-color: #ff1744 !important;
+}
+
+/* Tableaux plus lisibles */
+.md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color) !important;
+  color: white;
+}
+
+/* Scrollbar custom pour les blocs de code */
+.md-typeset pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--md-primary-fg-color) transparent !important;
+}
