@@ -30,7 +30,7 @@ git push -u origin main
 mkdocs gh-deploy
 ```
 
-Le site sera disponible à : `https://TONPSEUDO.github.io/web200-notes/`
+Le site sera disponible à : `https://GaelleBriet.github.io/web200-notes/`
 
 ### Déploiements suivants (automatiques)
 
