@@ -97,7 +97,7 @@ nav:
   - 🐚 Post-Exploitation:
     - post-exploit/index.md
     - Linux Post-RCE: post-exploit/23-linux-post-rce.md
-    - Reverse Shells: post-exploit/24-shells.md
+    - Shells: post-exploit/24-shells.md
 
   - 🎯 Méthodologie:
     - methodology/index.md
