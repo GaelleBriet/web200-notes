@@ -198,6 +198,17 @@ python3 jwt_tool.py TOKEN -T -S hs256 -p "SECRET"
 Extensions → JWT Editor  
 → Permet de modifier et re-signer les tokens directement dans Burp Repeater.
 
+### 7.4 Python
+```bash
+python3 -c "
+import jwt
+payload = {
+    'key': 'value'
+}
+token = jwt.encode(payload, 'TON_SECRET', algorithm='HS256')
+print(token)
+```
+
 ---
 
 ## 8. Workflow exam
